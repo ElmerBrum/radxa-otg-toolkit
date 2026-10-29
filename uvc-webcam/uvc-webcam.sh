@@ -7,8 +7,7 @@ set -e
 
 FPS=${FPS:-}                     # empty = use the video's own frame rate
 RESOLUTIONS=${RESOLUTIONS:-"1280x720 640x360"}
-QUALITY=${QUALITY:-5}            # ffmpeg -q:v (2 = best, 31 = worst)
-CACHE=${CACHE:-/var/cache/uvc-webcam}
+QUALITY=${QUALITY:-}             # hardware JPEG quality 1-99, empty = encoder default (~80)
 MAXPACKET=${MAXPACKET:-3072}     # 3 x 1024 bytes per microframe (USB 2.0 high-speed)
 UDC=${UDC:-fcc00000.usb}
 MANUFACTURER=${MANUFACTURER:-Toletus}
@@ -21,34 +20,24 @@ G=/sys/kernel/config/usb_gadget/uvcwebcam
 F=$G/functions/uvc.usb0
 DIR=$(dirname "$(readlink -f "$0")")
 
-# Render the video into JPEG frames, once per resolution (redone if the video or settings change).
-render() {
-	local video=$1 res=$2 out=$3/$2
-	if [ -f "$out/.done" ] && [ "$out/.done" -nt "$video" ] && [ "$(cat "$out/.done")" = "$FPS $QUALITY" ]; then
-		return
-	fi
-	echo "Rendering $video -> $out"
-	rm -rf "$out"; mkdir -p "$out"
-	ffmpeg -hide_banner -loglevel error -i "$video" -an -r "$FPS" \
-		-vf "scale=${res%x*}:${res#*x}" -pix_fmt yuvj420p -q:v "$QUALITY" "$out/%05d.jpg"
-	echo "$FPS $QUALITY" > "$out/.done"
-}
-
 start() {
 	local video=$1
 	[ -f "$video" ] || { echo "Usage: $0 start <video-file>" >&2; exit 1; }
 	video=$(readlink -f "$video")
 	[ -d /sys/class/udc/$UDC ] || { echo "$UDC is not in device mode (see doc/otg-host-mode.md)" >&2; exit 1; }
-	[ -d $G ] && { echo "Already running, use: $0 stop" >&2; exit 1; }
+	if [ -d $G ]; then
+		local old=$(cat $PIDFILE 2>/dev/null)
+		[ -n "$old" ] && kill -0 "$old" 2>/dev/null && { echo "Already running, use: $0 stop" >&2; exit 1; }
+		echo "Removing leftover gadget from a run that did not clean up"
+		remove
+	fi
 
 	if [ -z "$FPS" ]; then
 		FPS=$(ffprobe -v error -select_streams v:0 -show_entries stream=avg_frame_rate -of csv=p=0 "$video")
 		FPS=$(( (${FPS%/*} + ${FPS#*/} / 2) / ${FPS#*/} ))
 	fi
 
-	local cache=$CACHE/$(echo "$video" | md5sum | cut -c1-12)
-	local interval=$((10000000 / FPS)) dirs=()
-	for res in $RESOLUTIONS; do render "$video" "$res" "$cache"; done
+	local interval=$((10000000 / FPS))
 
 	mkdir -p $G
 	echo $VENDOR_ID > $G/idVendor
@@ -73,9 +62,9 @@ start() {
 
 	for res in $RESOLUTIONS; do
 		local w=${res%x*} h=${res#*x} fr=$F/streaming/mjpeg/m/$res
-		# Biggest rendered frame + 10% is the buffer size the host has to allocate.
-		local max=$(find "$cache/$res" -name '*.jpg' -printf '%s\n' | sort -n | tail -1)
-		max=$((max + max / 10))
+		# Buffer size the host allocates per frame. Measured hardware JPEGs peak at
+		# 0.10-0.18 bytes/pixel; 0.5 leaves room. Bigger frames are skipped by uvc-stream.py.
+		local max=$((w * h / 2))
 		mkdir -p $fr
 		echo $w > $fr/wWidth
 		echo $h > $fr/wHeight
@@ -84,7 +73,6 @@ start() {
 		echo $((max * 8 * FPS)) > $fr/dwMaxBitRate
 		echo $interval > $fr/dwDefaultFrameInterval
 		echo $interval > $fr/dwFrameInterval
-		dirs+=("$cache/$res")
 	done
 
 	mkdir -p $F/streaming/header/h
@@ -106,9 +94,9 @@ start() {
 	echo "UVC gadget on $dev, $FPS fps, $RESOLUTIONS (Ctrl+C to stop)"
 
 	echo $$ > $PIDFILE
-	python3 "$DIR/uvc-stream.py" "$dev" "$FPS" "$MAXPACKET" "${dirs[@]}" &
+	QUALITY=$QUALITY python3 "$DIR/uvc-stream.py" "$dev" "$video" "$FPS" "$MAXPACKET" $RESOLUTIONS &
 	local pid=$!
-	trap "kill $pid 2>/dev/null" INT TERM
+	trap "kill $pid 2>/dev/null" INT TERM HUP    # HUP: terminal closed / SSH dropped
 	wait $pid || true
 	wait $pid 2>/dev/null || true
 	remove

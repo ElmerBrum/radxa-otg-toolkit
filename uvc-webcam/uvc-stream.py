@@ -1,19 +1,26 @@
 #!/usr/bin/env python3
 """Minimal UVC gadget userspace driver.
 
-Answers the host's UVC probe/commit requests and streams pre-rendered MJPEG
-frames (one directory of .jpg files per resolution) in a loop at a fixed FPS.
+Answers the host's UVC probe/commit requests and, while the host streams, runs
+ffmpeg with the Rockchip hardware decoder/scaler/JPEG encoder to transcode the
+video (looped) to MJPEG at the resolution the host chose. Frames are sent at a
+fixed FPS; nothing is cached on disk.
 
-Usage: uvc-stream.py /dev/videoN FPS MAXPACKET DIR_FRAME1 [DIR_FRAME2 ...]
+Usage: uvc-stream.py /dev/videoN VIDEO FPS MAXPACKET WxH [WxH ...]
+Env:   QUALITY=1-99 hardware JPEG quality (empty = encoder default)
 """
+import ctypes
 import errno
 import fcntl
-import glob
 import mmap
 import os
+import queue
 import select
+import signal
 import struct
+import subprocess
 import sys
+import threading
 import time
 
 
@@ -55,36 +62,101 @@ EL2HLT = 51
 
 CTRL_FMT = '<HBBIHHHHHIIIBBBB'  # struct uvc_streaming_control (34 bytes)
 NBUFS = 4
+QUEUE_FRAMES = 4     # encoded JPEGs buffered ahead; ffmpeg blocks on the pipe when full
+PREFILL_FRAMES = 2   # queued before streaming starts (measured: the first 2 ticks underrun without it)
+FIRST_FRAME_TIMEOUT = 5
+PR_SET_PDEATHSIG = 1
 
 
 def log(*a):
     print(*a, flush=True)
 
 
+def die_with_parent():
+    ctypes.CDLL(None).prctl(PR_SET_PDEATHSIG, signal.SIGKILL)
+
+
+class Transcoder:
+    """ffmpeg (hardware) -> MJPEG pipe -> bounded queue of JPEG frames."""
+
+    def __init__(self, video, w, h, fps, quality):
+        # RGA converts to RGBA so the JPEG encoder does the YUV range conversion itself;
+        # feeding it NV12 directly gives washed-out (limited-range) colors.
+        cmd = ['ffmpeg', '-nostdin', '-hide_banner', '-loglevel', 'error', '-stream_loop', '-1',
+               '-hwaccel', 'rkmpp', '-hwaccel_output_format', 'drm_prime', '-afbc', 'rga',
+               '-i', video, '-an', '-r', str(fps),
+               '-vf', f'scale_rkrga=w={w}:h={h}:format=rgba', '-c:v', 'mjpeg_rkmpp']
+        if quality:
+            cmd += ['-qp_init', quality]
+        cmd += ['-f', 'mjpeg', '-']
+        self.frames = queue.Queue(QUEUE_FRAMES)
+        self.stopping = False
+        self.proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                     stdin=subprocess.DEVNULL, preexec_fn=die_with_parent)
+        self.thread = threading.Thread(target=self.read, daemon=True)
+        self.thread.start()
+
+    def read(self):
+        buf = b''
+        while chunk := self.proc.stdout.read1(65536):
+            buf += chunk
+            while (end := buf.find(b'\xff\xd9')) >= 0:
+                start = buf.find(b'\xff\xd8')
+                self.put(buf[start:end + 2])
+                buf = buf[end + 2:]
+        err = self.proc.stderr.read().decode(errors='replace').strip()
+        if not self.stopping:
+            log(f'ffmpeg exited ({self.proc.wait()}): {err}')
+
+    def put(self, jpeg):
+        while not self.stopping:
+            try:
+                return self.frames.put(jpeg, timeout=0.2)
+            except queue.Full:
+                pass
+
+    def get(self, timeout=None):
+        try:
+            return self.frames.get(timeout=timeout) if timeout else self.frames.get_nowait()
+        except queue.Empty:
+            return None
+
+    def prefill(self, n, timeout):
+        """Wait until n frames are queued: the encoder needs a moment to reach full speed."""
+        deadline = time.monotonic() + timeout
+        while self.frames.qsize() < n and time.monotonic() < deadline and self.proc.poll() is None:
+            time.sleep(0.01)
+
+    def stop(self):
+        self.stopping = True    # makes the reader give up on a full queue
+        self.proc.kill()        # nothing to finalize: output is a pipe
+        self.proc.wait()
+        self.thread.join()
+
+
 class Stream:
-    def __init__(self, dev, fps, maxpacket, dirs):
+    def __init__(self, dev, video, fps, maxpacket, resolutions):
         self.fd = os.open(dev, os.O_RDWR | os.O_NONBLOCK)
+        self.video = video
+        self.fps = fps
+        self.quality = os.environ.get('QUALITY', '')
         self.interval = 10000000 // fps
         self.period = 1.0 / fps
         self.maxpacket = maxpacket
-        self.frames = []    # per resolution: list of JPEG bytes
-        self.sizes = []     # per resolution: (w, h, max buffer size)
-        for d in dirs:
-            files = sorted(glob.glob(os.path.join(d, '*.jpg')))
-            jpegs = [open(f, 'rb').read() for f in files]
-            w, h = map(int, os.path.basename(d.rstrip('/')).split('x'))
-            maxsize = max(map(len, jpegs))
-            maxsize += maxsize // 10
-            self.frames.append(jpegs)
-            self.sizes.append((w, h, maxsize))
-            log(f'{w}x{h}: {len(jpegs)} frames, max {maxsize} bytes')
+        self.sizes = []     # per frame index: (w, h, max buffer size), same as configfs
+        for r in resolutions:
+            w, h = map(int, r.split('x'))
+            self.sizes.append((w, h, w * h // 2))
         self.probe = self.ctrl(1)
         self.commit = self.ctrl(1)
         self.set_cs = None
         self.streaming = False
         self.bufs = []
         self.free = []
-        self.pos = 0
+        self.source = None
+        self.last = None
+        self.underruns = 0
+        self.skipped = 0
         self.next_t = 0.0
         for ev in range(UVC_EVENT_CONNECT, UVC_EVENT_DATA + 1):
             fcntl.ioctl(self.fd, VIDIOC_SUBSCRIBE_EVENT, struct.pack('<III20x', ev, 0, 0))
@@ -175,13 +247,24 @@ class Stream:
             self.bufs.append(mmap.mmap(self.fd, length, mmap.MAP_SHARED,
                                        mmap.PROT_READ | mmap.PROT_WRITE, offset=offset))
         self.free = list(range(n))
+        w, h, _ = self.sizes[self.frame_index() - 1]
+        self.source = Transcoder(self.video, w, h, self.fps, self.quality)
+        self.last = self.source.get(FIRST_FRAME_TIMEOUT)
+        if self.last is None:
+            log('no frame from ffmpeg')
+        self.source.prefill(PREFILL_FRAMES, 1)
+        self.underruns = self.skipped = 0
         self.queue_frame()
         fcntl.ioctl(self.fd, VIDIOC_STREAMON, struct.pack('<i', BUF_TYPE_OUTPUT))
         self.streaming = True
         self.next_t = time.monotonic() + self.period
-        log(f'streaming started ({n} buffers)')
+        log(f'streaming started ({w}x{h}, {n} buffers)')
 
     def stream_off(self):
+        if self.source:
+            self.source.stop()
+            self.source = None
+            log(f'transcoder stopped (underruns={self.underruns}, oversized frames skipped={self.skipped})')
         if self.streaming:
             try:
                 fcntl.ioctl(self.fd, VIDIOC_STREAMOFF, struct.pack('<i', BUF_TYPE_OUTPUT))
@@ -198,12 +281,19 @@ class Stream:
             pass
 
     def queue_frame(self):
-        if not self.free:
+        # The first frame was already taken in stream_on(); later ones come from the queue.
+        jpeg = self.source.get() if self.streaming else self.last
+        if jpeg is None:          # transcoder late: repeat the previous frame
+            self.underruns += 1
+            jpeg = self.last
+        if jpeg is None or not self.free:
             return
-        frames = self.frames[self.frame_index() - 1]
-        jpeg = frames[self.pos % len(frames)]
-        self.pos += 1
-        i = self.free.pop(0)
+        i = self.free[0]
+        if len(jpeg) > len(self.bufs[i]):
+            self.skipped += 1
+            return
+        self.last = jpeg
+        self.free.pop(0)
         self.bufs[i][:len(jpeg)] = jpeg
         fcntl.ioctl(self.fd, VIDIOC_QBUF, self.v4l2_buf(i, len(jpeg)))
 
@@ -257,13 +347,18 @@ class Stream:
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 5:
+    if len(sys.argv) < 6:
         sys.exit(__doc__)
+    for sig in (signal.SIGTERM, signal.SIGHUP):
+        signal.signal(sig, lambda *_: sys.exit(0))
+    stream = Stream(sys.argv[1], sys.argv[2], int(sys.argv[3]), int(sys.argv[4]), sys.argv[5:])
     try:
-        Stream(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), sys.argv[4:]).run()
+        stream.run()
     except KeyboardInterrupt:
         pass
     except OSError as e:
         if e.errno != errno.ENODEV:
             raise
         log('gadget removed')
+    finally:
+        stream.stream_off()
