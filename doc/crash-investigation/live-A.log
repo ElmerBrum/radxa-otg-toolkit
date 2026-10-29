@@ -1,0 +1,1041 @@
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+[Thu Oct 29 17:30:34 2026] Booting Linux on physical CPU 0x0000000000 [0x412fd050]
+[Thu Oct 29 17:30:34 2026] Linux version 6.1.115-vendor-rk35xx (build@armbian) (aarch64-linux-gnu-gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0, GNU ld (GNU Binutils for Ubuntu) 2.42) #1 SMP Tue Jun  3 13:10:51 UTC 2025
+[Thu Oct 29 17:30:34 2026] Machine model: Radxa ZERO 3
+[Thu Oct 29 17:30:34 2026] efi: UEFI not found.
+[Thu Oct 29 17:30:34 2026] OF: fdt: Reserved memory: failed to reserve memory for node 'drm-logo@0': base 0x0000000000000000, size 0 MiB
+[Thu Oct 29 17:30:34 2026] OF: fdt: Reserved memory: failed to reserve memory for node 'drm-cubic-lut@0': base 0x0000000000000000, size 0 MiB
+[Thu Oct 29 17:30:34 2026] Reserved memory: created CMA memory pool at 0x0000000034000000, size 128 MiB
+[Thu Oct 29 17:30:34 2026] OF: reserved mem: initialized node rknpu, compatible id shared-dma-pool
+[Thu Oct 29 17:30:34 2026] Zone ranges:
+[Thu Oct 29 17:30:34 2026]   DMA      [mem 0x0000000000200000-0x000000003fffffff]
+[Thu Oct 29 17:30:34 2026]   DMA32    empty
+[Thu Oct 29 17:30:34 2026]   Normal   empty
+[Thu Oct 29 17:30:34 2026] Movable zone start for each node
+[Thu Oct 29 17:30:34 2026] Early memory node ranges
+[Thu Oct 29 17:30:34 2026]   node   0: [mem 0x0000000000200000-0x000000003fffffff]
+[Thu Oct 29 17:30:34 2026] Initmem setup node 0 [mem 0x0000000000200000-0x000000003fffffff]
+[Thu Oct 29 17:30:34 2026] On node 0, zone DMA: 512 pages in unavailable ranges
+[Thu Oct 29 17:30:34 2026] cma: Reserved 16 MiB at 0x000000003dc00000
+[Thu Oct 29 17:30:34 2026] psci: probing for conduit method from DT.
+[Thu Oct 29 17:30:34 2026] psci: PSCIv1.1 detected in firmware.
+[Thu Oct 29 17:30:34 2026] psci: Using standard PSCI v0.2 function IDs
+[Thu Oct 29 17:30:34 2026] psci: MIGRATE_INFO_TYPE not supported.
+[Thu Oct 29 17:30:34 2026] psci: SMC Calling Convention v1.2
+[Thu Oct 29 17:30:34 2026] percpu: Embedded 30 pages/cpu s82728 r8192 d31960 u122880
+[Thu Oct 29 17:30:34 2026] pcpu-alloc: s82728 r8192 d31960 u122880 alloc=30*4096
+[Thu Oct 29 17:30:34 2026] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+[Thu Oct 29 17:30:34 2026] Detected VIPT I-cache on CPU0
+[Thu Oct 29 17:30:34 2026] CPU features: detected: GIC system register CPU interface
+[Thu Oct 29 17:30:34 2026] CPU features: detected: Virtualization Host Extensions
+[Thu Oct 29 17:30:34 2026] CPU features: detected: Qualcomm erratum 1009, or ARM erratum 1286807, 2441009
+[Thu Oct 29 17:30:34 2026] CPU features: detected: ARM errata 1165522, 1319367, or 1530923
+[Thu Oct 29 17:30:34 2026] alternatives: applying boot alternatives
+[Thu Oct 29 17:30:34 2026] Built 1 zonelists, mobility grouping on.  Total pages: 257544
+[Thu Oct 29 17:30:34 2026] Kernel command line: root=UUID=4ffbfd43-e461-44b6-9dc6-bd3bda2d8bdc rootfstype=ext4 rootwait console=ttyFIQ0,1500000 consoleblank=0 coherent_pool=2M partuuid=c8bf773f-0976-4865-a998-d766786d3277 net.ifnames=0 video=HDMI-A-1:d quiet splash plymouth.ignore-serial-consoles loglevel=3 vt.global_cursor_default=0
+[Thu Oct 29 17:30:34 2026] Unknown kernel command line parameters "splash partuuid=c8bf773f-0976-4865-a998-d766786d3277", will be passed to user space.
+[Thu Oct 29 17:30:34 2026] Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[Thu Oct 29 17:30:34 2026] Inode-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[Thu Oct 29 17:30:34 2026] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+[Thu Oct 29 17:30:34 2026] Memory: 814700K/1046528K available (19328K kernel code, 3982K rwdata, 16176K rodata, 8384K init, 699K bss, 84372K reserved, 147456K cma-reserved)
+[Thu Oct 29 17:30:34 2026] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[Thu Oct 29 17:30:34 2026] ftrace: allocating 72429 entries in 283 pages
+[Thu Oct 29 17:30:34 2026] ftrace: allocated 283 pages with 5 groups
+[Thu Oct 29 17:30:34 2026] trace event string verifier disabled
+[Thu Oct 29 17:30:34 2026] rcu: Hierarchical RCU implementation.
+[Thu Oct 29 17:30:34 2026] rcu: 	RCU event tracing is enabled.
+[Thu Oct 29 17:30:34 2026] rcu: 	RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+[Thu Oct 29 17:30:34 2026] 	Rude variant of Tasks RCU enabled.
+[Thu Oct 29 17:30:34 2026] 	Tracing variant of Tasks RCU enabled.
+[Thu Oct 29 17:30:34 2026] rcu: RCU calculated value of scheduler-enlistment delay is 30 jiffies.
+[Thu Oct 29 17:30:34 2026] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[Thu Oct 29 17:30:34 2026] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[Thu Oct 29 17:30:34 2026] GICv3: GIC: Using split EOI/Deactivate mode
+[Thu Oct 29 17:30:34 2026] GICv3: 320 SPIs implemented
+[Thu Oct 29 17:30:34 2026] GICv3: 0 Extended SPIs implemented
+[Thu Oct 29 17:30:34 2026] Root IRQ handler: gic_handle_irq
+[Thu Oct 29 17:30:34 2026] GICv3: GICv3 features: 16 PPIs
+[Thu Oct 29 17:30:34 2026] GICv3: CPU0: found redistributor 0 region 0:0x00000000fd460000
+[Thu Oct 29 17:30:34 2026] ITS [mem 0xfd440000-0xfd45ffff]
+[Thu Oct 29 17:30:34 2026] ITS@0x00000000fd440000: allocated 8192 Devices @650000 (indirect, esz 8, psz 64K, shr 0)
+[Thu Oct 29 17:30:34 2026] ITS@0x00000000fd440000: allocated 32768 Interrupt Collections @660000 (flat, esz 2, psz 64K, shr 0)
+[Thu Oct 29 17:30:34 2026] ITS: using cache flushing for cmd queue
+[Thu Oct 29 17:30:34 2026] GICv3: using LPI property table @0x0000000000670000
+[Thu Oct 29 17:30:34 2026] GIC: using cache flushing for LPI property table
+[Thu Oct 29 17:30:34 2026] GICv3: CPU0: using allocated LPI pending table @0x0000000000680000
+[Thu Oct 29 17:30:34 2026] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[Thu Oct 29 17:30:34 2026] arch_timer: cp15 timer(s) running at 24.00MHz (phys).
+[Thu Oct 29 17:30:34 2026] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+[Thu Oct 29 17:30:34 2026] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+[Thu Oct 29 17:30:34 2026] Console: colour dummy device 80x25
+[Thu Oct 29 17:30:34 2026] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=80000)
+[Thu Oct 29 17:30:34 2026] pid_max: default: 32768 minimum: 301
+[Thu Oct 29 17:30:34 2026] LSM: Security Framework initializing
+[Thu Oct 29 17:30:34 2026] AppArmor: AppArmor initialized
+[Thu Oct 29 17:30:34 2026] Mount-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+[Thu Oct 29 17:30:34 2026] Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+[Thu Oct 29 17:30:34 2026] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[Thu Oct 29 17:30:34 2026] cblist_init_generic: Setting adjustable number of callback queues.
+[Thu Oct 29 17:30:34 2026] cblist_init_generic: Setting shift to 2 and lim to 1.
+[Thu Oct 29 17:30:34 2026] cblist_init_generic: Setting adjustable number of callback queues.
+[Thu Oct 29 17:30:34 2026] cblist_init_generic: Setting shift to 2 and lim to 1.
+[Thu Oct 29 17:30:34 2026] rcu: Hierarchical SRCU implementation.
+[Thu Oct 29 17:30:34 2026] rcu: 	Max phase no-delay instances is 1000.
+[Thu Oct 29 17:30:34 2026] Platform MSI: interrupt-controller@fd440000 domain created
+[Thu Oct 29 17:30:34 2026] PCI/MSI: /interrupt-controller@fd400000/interrupt-controller@fd440000 domain created
+[Thu Oct 29 17:30:34 2026] EFI services will not be available.
+[Thu Oct 29 17:30:34 2026] smp: Bringing up secondary CPUs ...
+[Thu Oct 29 17:30:34 2026] Detected VIPT I-cache on CPU1
+[Thu Oct 29 17:30:34 2026] cacheinfo: Unable to detect cache hierarchy for CPU 1
+[Thu Oct 29 17:30:34 2026] GICv3: CPU1: found redistributor 100 region 0:0x00000000fd480000
+[Thu Oct 29 17:30:34 2026] GICv3: CPU1: using allocated LPI pending table @0x0000000000690000
+[Thu Oct 29 17:30:34 2026] CPU1: Booted secondary processor 0x0000000100 [0x412fd050]
+[Thu Oct 29 17:30:34 2026] Detected VIPT I-cache on CPU2
+[Thu Oct 29 17:30:34 2026] cacheinfo: Unable to detect cache hierarchy for CPU 2
+[Thu Oct 29 17:30:34 2026] GICv3: CPU2: found redistributor 200 region 0:0x00000000fd4a0000
+[Thu Oct 29 17:30:34 2026] GICv3: CPU2: using allocated LPI pending table @0x00000000006a0000
+[Thu Oct 29 17:30:34 2026] CPU2: Booted secondary processor 0x0000000200 [0x412fd050]
+[Thu Oct 29 17:30:34 2026] Detected VIPT I-cache on CPU3
+[Thu Oct 29 17:30:34 2026] cacheinfo: Unable to detect cache hierarchy for CPU 3
+[Thu Oct 29 17:30:34 2026] GICv3: CPU3: found redistributor 300 region 0:0x00000000fd4c0000
+[Thu Oct 29 17:30:34 2026] GICv3: CPU3: using allocated LPI pending table @0x00000000006b0000
+[Thu Oct 29 17:30:34 2026] CPU3: Booted secondary processor 0x0000000300 [0x412fd050]
+[Thu Oct 29 17:30:34 2026] smp: Brought up 1 node, 4 CPUs
+[Thu Oct 29 17:30:34 2026] SMP: Total of 4 processors activated.
+[Thu Oct 29 17:30:34 2026] CPU features: detected: 32-bit EL0 Support
+[Thu Oct 29 17:30:34 2026] CPU features: detected: 32-bit EL1 Support
+[Thu Oct 29 17:30:34 2026] CPU features: detected: Data cache clean to the PoU not required for I/D coherence
+[Thu Oct 29 17:30:34 2026] CPU features: detected: Common not Private translations
+[Thu Oct 29 17:30:34 2026] CPU features: detected: CRC32 instructions
+[Thu Oct 29 17:30:34 2026] CPU features: detected: RCpc load-acquire (LDAPR)
+[Thu Oct 29 17:30:34 2026] CPU features: detected: LSE atomic instructions
+[Thu Oct 29 17:30:34 2026] CPU features: detected: Privileged Access Never
+[Thu Oct 29 17:30:34 2026] CPU features: detected: RAS Extension Support
+[Thu Oct 29 17:30:34 2026] CPU features: detected: Speculative Store Bypassing Safe (SSBS)
+[Thu Oct 29 17:30:34 2026] CPU: All CPU(s) started at EL2
+[Thu Oct 29 17:30:34 2026] alternatives: applying system-wide alternatives
+[Thu Oct 29 17:30:34 2026] devtmpfs: initialized
+[Thu Oct 29 17:30:34 2026] Registered cp15_barrier emulation handler
+[Thu Oct 29 17:30:34 2026] Registered setend emulation handler
+[Thu Oct 29 17:30:34 2026] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 6370867519511994 ns
+[Thu Oct 29 17:30:34 2026] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[Thu Oct 29 17:30:34 2026] pinctrl core: initialized pinctrl subsystem
+[Thu Oct 29 17:30:34 2026] regulator-dummy: no parameters, enabled
+[Thu Oct 29 17:30:34 2026] DMI not present or invalid.
+[Thu Oct 29 17:30:34 2026] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[Thu Oct 29 17:30:34 2026] DMA: preallocated 2048 KiB GFP_KERNEL pool for atomic allocations
+[Thu Oct 29 17:30:34 2026] DMA: preallocated 2048 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[Thu Oct 29 17:30:34 2026] DMA: preallocated 2048 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[Thu Oct 29 17:30:34 2026] audit: initializing netlink subsys (disabled)
+[Thu Oct 29 17:30:34 2026] audit: type=2000 audit(0.073:1): state=initialized audit_enabled=0 res=1
+[Thu Oct 29 17:30:34 2026] Registered FIQ tty driver
+[Thu Oct 29 17:30:34 2026] thermal_sys: Registered thermal governor 'fair_share'
+[Thu Oct 29 17:30:34 2026] thermal_sys: Registered thermal governor 'step_wise'
+[Thu Oct 29 17:30:34 2026] thermal_sys: Registered thermal governor 'user_space'
+[Thu Oct 29 17:30:34 2026] thermal_sys: Registered thermal governor 'power_allocator'
+[Thu Oct 29 17:30:34 2026] cpuidle: using governor menu
+[Thu Oct 29 17:30:34 2026] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[Thu Oct 29 17:30:34 2026] ASID allocator initialised with 65536 entries
+[Thu Oct 29 17:30:34 2026] ramoops: dmesg-0	0x20000@0x0000000000110000
+[Thu Oct 29 17:30:34 2026] ramoops: console	0x80000@0x0000000000130000
+[Thu Oct 29 17:30:34 2026] ramoops: pmsg	0x50000@0x00000000001b0000
+[Thu Oct 29 17:30:34 2026] printk: console [ramoops-1] enabled
+[Thu Oct 29 17:30:34 2026] pstore: Registered ramoops as persistent store backend
+[Thu Oct 29 17:30:34 2026] ramoops: using 0xf0000@0x110000, ecc: 0
+[Thu Oct 29 17:30:34 2026] platform fe040000.vop: Fixed dependency cycle(s) with /hdmi@fe0a0000
+[Thu Oct 29 17:30:34 2026] platform fe0a0000.hdmi: Fixed dependency cycle(s) with /vop@fe040000
+[Thu Oct 29 17:30:34 2026] rockchip-gpio fdd60000.gpio: probed /pinctrl/gpio@fdd60000
+[Thu Oct 29 17:30:34 2026] rockchip-gpio fe740000.gpio: probed /pinctrl/gpio@fe740000
+[Thu Oct 29 17:30:34 2026] rockchip-gpio fe750000.gpio: probed /pinctrl/gpio@fe750000
+[Thu Oct 29 17:30:34 2026] rockchip-gpio fe760000.gpio: probed /pinctrl/gpio@fe760000
+[Thu Oct 29 17:30:34 2026] rockchip-gpio fe770000.gpio: probed /pinctrl/gpio@fe770000
+[Thu Oct 29 17:30:34 2026] rockchip-pinctrl pinctrl: probed pinctrl
+[Thu Oct 29 17:30:34 2026] KASLR disabled due to lack of seed
+[Thu Oct 29 17:30:34 2026] HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
+[Thu Oct 29 17:30:34 2026] HugeTLB: 0 KiB vmemmap can be freed for a 1.00 GiB page
+[Thu Oct 29 17:30:34 2026] HugeTLB: registered 32.0 MiB page size, pre-allocated 0 pages
+[Thu Oct 29 17:30:34 2026] HugeTLB: 0 KiB vmemmap can be freed for a 32.0 MiB page
+[Thu Oct 29 17:30:34 2026] HugeTLB: registered 2.00 MiB page size, pre-allocated 0 pages
+[Thu Oct 29 17:30:34 2026] HugeTLB: 0 KiB vmemmap can be freed for a 2.00 MiB page
+[Thu Oct 29 17:30:34 2026] HugeTLB: registered 64.0 KiB page size, pre-allocated 0 pages
+[Thu Oct 29 17:30:34 2026] HugeTLB: 0 KiB vmemmap can be freed for a 64.0 KiB page
+[Thu Oct 29 17:30:35 2026] raid6: neonx8   gen()  1450 MB/s
+[Thu Oct 29 17:30:35 2026] raid6: neonx4   gen()  1407 MB/s
+[Thu Oct 29 17:30:35 2026] raid6: neonx2   gen()  1279 MB/s
+[Thu Oct 29 17:30:35 2026] raid6: neonx1   gen()  1052 MB/s
+[Thu Oct 29 17:30:35 2026] raid6: int64x8  gen()   351 MB/s
+[Thu Oct 29 17:30:35 2026] raid6: int64x4  gen()   448 MB/s
+[Thu Oct 29 17:30:35 2026] raid6: int64x2  gen()   896 MB/s
+[Thu Oct 29 17:30:35 2026] raid6: int64x1  gen()   632 MB/s
+[Thu Oct 29 17:30:35 2026] raid6: using algorithm neonx8 gen() 1450 MB/s
+[Thu Oct 29 17:30:35 2026] raid6: .... xor() 1093 MB/s, rmw enabled
+[Thu Oct 29 17:30:35 2026] raid6: using neon recovery algorithm
+[Thu Oct 29 17:30:35 2026] fiq_debugger fiq_debugger.0: error -ENXIO: IRQ fiq not found
+[Thu Oct 29 17:30:35 2026] fiq_debugger fiq_debugger.0: error -ENXIO: IRQ wakeup not found
+[Thu Oct 29 17:30:35 2026] fiq_debugger_probe: could not install nmi irq handler
+[Thu Oct 29 17:30:35 2026] printk: console [ttyFIQ0] enabled
+[Thu Oct 29 17:30:35 2026] Registered fiq debugger ttyFIQ0
+[Thu Oct 29 17:30:35 2026] vcc_sys: 5000 mV, enabled
+[Thu Oct 29 17:30:35 2026] reg-fixed-voltage vcc-sys: vcc_sys supplying 5000000uV
+[Thu Oct 29 17:30:35 2026] reg-fixed-voltage vcc3v3-sys: Looking up vin-supply from device tree
+[Thu Oct 29 17:30:35 2026] vcc3v3_sys: supplied by vcc_sys
+[Thu Oct 29 17:30:35 2026] vcc_sys: could not add device link regulator.2: -ENOENT
+[Thu Oct 29 17:30:35 2026] vcc3v3_sys: 3300 mV, enabled
+[Thu Oct 29 17:30:35 2026] reg-fixed-voltage vcc3v3-sys: vcc3v3_sys supplying 3300000uV
+[Thu Oct 29 17:30:35 2026] reg-fixed-voltage vcc5v0-sys: Looking up vin-supply from device tree
+[Thu Oct 29 17:30:35 2026] vcc5v0_sys: supplied by vcc_sys
+[Thu Oct 29 17:30:35 2026] vcc_sys: could not add device link regulator.3: -ENOENT
+[Thu Oct 29 17:30:35 2026] vcc5v0_sys: 5000 mV, enabled
+[Thu Oct 29 17:30:35 2026] reg-fixed-voltage vcc5v0-sys: vcc5v0_sys supplying 5000000uV
+[Thu Oct 29 17:30:35 2026] board_antenna: no parameters, enabled
+[Thu Oct 29 17:30:35 2026] reg-fixed-voltage board-antenna: board_antenna supplying 0uV
+[Thu Oct 29 17:30:35 2026] iommu: Default domain type: Translated 
+[Thu Oct 29 17:30:35 2026] iommu: DMA domain TLB invalidation policy: strict mode 
+[Thu Oct 29 17:30:35 2026] SCSI subsystem initialized
+[Thu Oct 29 17:30:35 2026] libata version 3.00 loaded.
+[Thu Oct 29 17:30:35 2026] usbcore: registered new interface driver usbfs
+[Thu Oct 29 17:30:35 2026] usbcore: registered new interface driver hub
+[Thu Oct 29 17:30:35 2026] usbcore: registered new device driver usb
+[Thu Oct 29 17:30:35 2026] mc: Linux media interface: v0.10
+[Thu Oct 29 17:30:35 2026] videodev: Linux video capture interface: v2.00
+[Thu Oct 29 17:30:35 2026] pps_core: LinuxPPS API ver. 1 registered
+[Thu Oct 29 17:30:35 2026] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[Thu Oct 29 17:30:35 2026] PTP clock support registered
+[Thu Oct 29 17:30:35 2026] arm-scmi firmware:scmi: Enabled polling mode TX channel - prot_id:16
+[Thu Oct 29 17:30:35 2026] arm-scmi firmware:scmi: SCMI Notifications - Core Enabled.
+[Thu Oct 29 17:30:35 2026] arm-scmi firmware:scmi: SCMI Protocol v2.0 'rockchip:' Firmware version 0x0
+[Thu Oct 29 17:30:35 2026] Advanced Linux Sound Architecture Driver Initialized.
+[Thu Oct 29 17:30:35 2026] Bluetooth: Core ver 2.22
+[Thu Oct 29 17:30:35 2026] NET: Registered PF_BLUETOOTH protocol family
+[Thu Oct 29 17:30:35 2026] Bluetooth: HCI device and connection manager initialized
+[Thu Oct 29 17:30:35 2026] Bluetooth: HCI socket layer initialized
+[Thu Oct 29 17:30:35 2026] Bluetooth: L2CAP socket layer initialized
+[Thu Oct 29 17:30:35 2026] Bluetooth: SCO socket layer initialized
+[Thu Oct 29 17:30:35 2026] NetLabel: Initializing
+[Thu Oct 29 17:30:35 2026] NetLabel:  domain hash size = 128
+[Thu Oct 29 17:30:35 2026] NetLabel:  protocols = UNLABELED CIPSOv4 CALIPSO
+[Thu Oct 29 17:30:35 2026] NetLabel:  unlabeled traffic allowed by default
+[Thu Oct 29 17:30:35 2026] vgaarb: loaded
+[Thu Oct 29 17:30:35 2026] clocksource: Switched to clocksource arch_sys_counter
+[Thu Oct 29 17:30:35 2026] VFS: Disk quotas dquot_6.6.0
+[Thu Oct 29 17:30:35 2026] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[Thu Oct 29 17:30:35 2026] AppArmor: AppArmor Filesystem Enabled
+[Thu Oct 29 17:30:35 2026] NET: Registered PF_INET protocol family
+[Thu Oct 29 17:30:35 2026] IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[Thu Oct 29 17:30:35 2026] tcp_listen_portaddr_hash hash table entries: 512 (order: 1, 8192 bytes, linear)
+[Thu Oct 29 17:30:35 2026] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[Thu Oct 29 17:30:35 2026] TCP established hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[Thu Oct 29 17:30:35 2026] TCP bind hash table entries: 8192 (order: 6, 262144 bytes, linear)
+[Thu Oct 29 17:30:35 2026] TCP: Hash tables configured (established 8192 bind 8192)
+[Thu Oct 29 17:30:35 2026] MPTCP token hash table entries: 1024 (order: 2, 24576 bytes, linear)
+[Thu Oct 29 17:30:35 2026] UDP hash table entries: 512 (order: 2, 16384 bytes, linear)
+[Thu Oct 29 17:30:35 2026] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes, linear)
+[Thu Oct 29 17:30:35 2026] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[Thu Oct 29 17:30:35 2026] RPC: Registered named UNIX socket transport module.
+[Thu Oct 29 17:30:35 2026] RPC: Registered udp transport module.
+[Thu Oct 29 17:30:35 2026] RPC: Registered tcp transport module.
+[Thu Oct 29 17:30:35 2026] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[Thu Oct 29 17:30:35 2026] PCI: CLS 0 bytes, default 64
+[Thu Oct 29 17:30:35 2026] Trying to unpack rootfs image as initramfs...
+[Thu Oct 29 17:30:35 2026] hw perfevents: enabled with armv8_cortex_a55 PMU driver, 7 counters available
+[Thu Oct 29 17:30:35 2026] kvm [1]: IPA Size Limit: 40 bits
+[Thu Oct 29 17:30:35 2026] kvm [1]: GICv3: no GICV resource entry
+[Thu Oct 29 17:30:35 2026] kvm [1]: disabling GICv2 emulation
+[Thu Oct 29 17:30:35 2026] kvm [1]: GIC system register CPU interface enabled
+[Thu Oct 29 17:30:35 2026] kvm [1]: vgic interrupt IRQ9
+[Thu Oct 29 17:30:35 2026] kvm [1]: VHE mode initialized successfully
+[Thu Oct 29 17:30:36 2026] Initialise system trusted keyrings
+[Thu Oct 29 17:30:36 2026] workingset: timestamp_bits=46 max_order=18 bucket_order=0
+[Thu Oct 29 17:30:36 2026] zbud: loaded
+[Thu Oct 29 17:30:36 2026] NFS: Registering the id_resolver key type
+[Thu Oct 29 17:30:36 2026] Key type id_resolver registered
+[Thu Oct 29 17:30:36 2026] Key type id_legacy registered
+[Thu Oct 29 17:30:36 2026] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[Thu Oct 29 17:30:36 2026] nfs4flexfilelayout_init: NFSv4 Flexfile Layout Driver Registering...
+[Thu Oct 29 17:30:36 2026] NET: Registered PF_ALG protocol family
+[Thu Oct 29 17:30:36 2026] xor: measuring software checksum speed
+[Thu Oct 29 17:30:36 2026]    8regs           :  1551 MB/sec
+[Thu Oct 29 17:30:36 2026]    32regs          :  1810 MB/sec
+[Thu Oct 29 17:30:36 2026]    arm64_neon      :  1575 MB/sec
+[Thu Oct 29 17:30:36 2026] xor: using function: 32regs (1810 MB/sec)
+[Thu Oct 29 17:30:36 2026] Key type asymmetric registered
+[Thu Oct 29 17:30:36 2026] Asymmetric key parser 'x509' registered
+[Thu Oct 29 17:30:36 2026] Freeing initrd memory: 14196K
+[Thu Oct 29 17:30:36 2026] alg: self-tests for CTR-KDF (hmac(sha256)) passed
+[Thu Oct 29 17:30:36 2026] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 241)
+[Thu Oct 29 17:30:36 2026] io scheduler mq-deadline registered
+[Thu Oct 29 17:30:36 2026] io scheduler kyber registered
+[Thu Oct 29 17:30:36 2026] phy phy-fe8a0000.usb2-phy.0: Looking up phy-supply from device tree
+[Thu Oct 29 17:30:36 2026] phy phy-fe8a0000.usb2-phy.0: Looking up phy-supply property in node /usb2-phy@fe8a0000/host-port failed
+[Thu Oct 29 17:30:36 2026] phy phy-fe8a0000.usb2-phy.1: Looking up phy-supply from device tree
+[Thu Oct 29 17:30:36 2026] phy phy-fe8a0000.usb2-phy.1: Looking up phy-supply property in node /usb2-phy@fe8a0000/otg-port failed
+[Thu Oct 29 17:30:36 2026] phy phy-fe8a0000.usb2-phy.1: Looking up vbus-supply from device tree
+[Thu Oct 29 17:30:36 2026] phy phy-fe8a0000.usb2-phy.1: Looking up vbus-supply property in node /usb2-phy@fe8a0000/otg-port failed
+[Thu Oct 29 17:30:36 2026] phy phy-fe8b0000.usb2-phy.2: Looking up phy-supply from device tree
+[Thu Oct 29 17:30:36 2026] phy phy-fe8b0000.usb2-phy.2: Looking up phy-supply property in node /usb2-phy@fe8b0000/host-port failed
+[Thu Oct 29 17:30:36 2026] phy phy-fe8b0000.usb2-phy.3: Looking up phy-supply from device tree
+[Thu Oct 29 17:30:36 2026] phy phy-fe8b0000.usb2-phy.3: Looking up phy-supply property in node /usb2-phy@fe8b0000/otg-port failed
+[Thu Oct 29 17:30:36 2026] phy phy-fe8b0000.usb2-phy.3: Looking up vbus-supply from device tree
+[Thu Oct 29 17:30:36 2026] phy phy-fe8b0000.usb2-phy.3: Looking up vbus-supply property in node /usb2-phy@fe8b0000/otg-port failed
+[Thu Oct 29 17:30:36 2026] phy phy-fe830000.phy.4: Looking up phy-supply from device tree
+[Thu Oct 29 17:30:36 2026] phy phy-fe830000.phy.4: Looking up phy-supply property in node /phy@fe830000 failed
+[Thu Oct 29 17:30:36 2026] iep: Module initialized.
+[Thu Oct 29 17:30:36 2026] mpp_service mpp-srv: 6c47657a381c author: Yandong Lin 2025-01-16 video: rockchip: mpp: Fix missing enable_irq in timeout work
+[Thu Oct 29 17:30:36 2026] mpp_service mpp-srv: probe start
+[Thu Oct 29 17:30:36 2026] mpp_service mpp-srv: probe success
+[Thu Oct 29 17:30:36 2026] dma-pl330 fe530000.dma-controller: Loaded driver for PL330 DMAC-241330
+[Thu Oct 29 17:30:36 2026] dma-pl330 fe530000.dma-controller: 	DBUFF-128x8bytes Num_Chans-8 Num_Peri-32 Num_Events-16
+[Thu Oct 29 17:30:36 2026] dma-pl330 fe550000.dma-controller: Loaded driver for PL330 DMAC-241330
+[Thu Oct 29 17:30:36 2026] dma-pl330 fe550000.dma-controller: 	DBUFF-128x8bytes Num_Chans-8 Num_Peri-32 Num_Events-16
+[Thu Oct 29 17:30:36 2026] rockchip-pvtm fde00000.pvtm: failed to retrieve pvtm_tz
+[Thu Oct 29 17:30:36 2026] rockchip-pvtm fde00000.pvtm: pvtm@0 probed
+[Thu Oct 29 17:30:36 2026] rockchip-pvtm fde80000.pvtm: failed to retrieve pvtm_tz
+[Thu Oct 29 17:30:36 2026] rockchip-pvtm fde80000.pvtm: pvtm@1 probed
+[Thu Oct 29 17:30:36 2026] rockchip-pvtm fde90000.pvtm: failed to retrieve pvtm_tz
+[Thu Oct 29 17:30:36 2026] rockchip-pvtm fde90000.pvtm: pvtm@2 probed
+[Thu Oct 29 17:30:36 2026] rockchip-system-monitor rockchip-system-monitor: system monitor probe
+[Thu Oct 29 17:30:36 2026] arm-scmi firmware:scmi: Failed. SCMI protocol 22 not active.
+[Thu Oct 29 17:30:36 2026] Serial: 8250/16550 driver, 10 ports, IRQ sharing disabled
+[Thu Oct 29 17:30:36 2026] fe650000.serial: ttyS1 at MMIO 0xfe650000 (irq = 32, base_baud = 1500000) is a 16550A
+[Thu Oct 29 17:30:36 2026] fe680000.serial: ttyS4 at MMIO 0xfe680000 (irq = 33, base_baud = 1500000) is a 16550A
+[Thu Oct 29 17:30:36 2026] led_vk2c21_init
+                           =============================================
+[Thu Oct 29 17:30:36 2026] random: crng init done
+[Thu Oct 29 17:30:36 2026] rockchip-pm-domain fdd90000.power-management:power-controller: Looking up npu-supply from device tree
+[Thu Oct 29 17:30:36 2026] rockchip-pm-domain fdd90000.power-management:power-controller: Looking up npu-supply property in node /power-management@fdd90000/power-controller failed
+[Thu Oct 29 17:30:36 2026] rockchip-pm-domain fdd90000.power-management:power-controller: Looking up vpu-supply from device tree
+[Thu Oct 29 17:30:36 2026] rockchip-pm-domain fdd90000.power-management:power-controller: Looking up vpu-supply property in node /power-management@fdd90000/power-controller failed
+[Thu Oct 29 17:30:36 2026] rockchip-pm-domain fdd90000.power-management:power-controller: Looking up rga-supply from device tree
+[Thu Oct 29 17:30:36 2026] rockchip-pm-domain fdd90000.power-management:power-controller: Looking up rga-supply property in node /power-management@fdd90000/power-controller failed
+[Thu Oct 29 17:30:36 2026] rockchip-pm-domain fdd90000.power-management:power-controller: Looking up rkvenc-supply from device tree
+[Thu Oct 29 17:30:36 2026] rockchip-pm-domain fdd90000.power-management:power-controller: Looking up rkvenc-supply property in node /power-management@fdd90000/power-controller failed
+[Thu Oct 29 17:30:36 2026] rockchip-pm-domain fdd90000.power-management:power-controller: Looking up rkvdec-supply from device tree
+[Thu Oct 29 17:30:36 2026] rockchip-pm-domain fdd90000.power-management:power-controller: Looking up rkvdec-supply property in node /power-management@fdd90000/power-controller failed
+[Thu Oct 29 17:30:36 2026] rockchip-vop2 fe040000.vop: Adding to iommu group 7
+[Thu Oct 29 17:30:36 2026] [drm] all windows should be assigned, full plane mask: Cluster0 | Cluster1 | Esmart0 | Esmart1 | Smart0 | Smart1[0x3f], current plane mask: [0x0]
+[Thu Oct 29 17:30:36 2026] [drm] use default plane mask
+[Thu Oct 29 17:30:36 2026] rockchip-vop2 fe040000.vop: [drm:vop2_bind] vp0 assign plane mask: Cluster0 | Cluster1 | Esmart0 | Esmart1 | Smart0 | Smart1[0x3f], primary plane phy id: Smart0[4]
+[Thu Oct 29 17:30:36 2026] rockchip-vop2 fe040000.vop: [drm:vop2_bind] vp1 assign plane mask: [0x0], primary plane phy id: INVALID[-1]
+[Thu Oct 29 17:30:36 2026] rockchip-vop2 fe040000.vop: [drm:vop2_bind] vp2 assign plane mask: [0x0], primary plane phy id: INVALID[-1]
+[Thu Oct 29 17:30:36 2026] [drm] failed to init overlay plane Cluster0-win1
+[Thu Oct 29 17:30:36 2026] rockchip-vop2 fe040000.vop: bin=0
+[Thu Oct 29 17:30:36 2026] rockchip-vop2 fe040000.vop: Failed to get leakage
+[Thu Oct 29 17:30:36 2026] rockchip-vop2 fe040000.vop: Looking up vop-supply from device tree
+[Thu Oct 29 17:30:36 2026] rockchip-vop2 fe040000.vop: Looking up vop-supply property in node /vop@fe040000 failed
+[Thu Oct 29 17:30:36 2026] rockchip-vop2 fe040000.vop: Failed to get reg
+[Thu Oct 29 17:30:36 2026] rockchip-vop2 fe040000.vop: Looking up vop-supply from device tree
+[Thu Oct 29 17:30:36 2026] rockchip-vop2 fe040000.vop: Looking up vop-supply property in node /vop@fe040000 failed
+[Thu Oct 29 17:30:36 2026] rockchip-vop2 fe040000.vop: error -ENODEV: _opp_set_regulators: no regulator (vop) found
+[Thu Oct 29 17:30:36 2026] rockchip-vop2 fe040000.vop: failed to set opp config
+[Thu Oct 29 17:30:36 2026] rockchip-vop2 fe040000.vop: failed to init opp info
+[Thu Oct 29 17:30:36 2026] rockchip-vop2 fe040000.vop: Unsupported VOP aclk dvfs
+[Thu Oct 29 17:30:36 2026] rockchip-drm display-subsystem: bound fe040000.vop (ops 0xffff80000943d110)
+[Thu Oct 29 17:30:36 2026] dwhdmi-rockchip fe0a0000.hdmi: Looking up avdd-0v9-supply from device tree
+[Thu Oct 29 17:30:36 2026] dwhdmi-rockchip fe0a0000.hdmi: Looking up avdd-0v9-supply property in node /hdmi@fe0a0000 failed
+[Thu Oct 29 17:30:36 2026] dwhdmi-rockchip fe0a0000.hdmi: Looking up avdd-1v8-supply from device tree
+[Thu Oct 29 17:30:36 2026] dwhdmi-rockchip fe0a0000.hdmi: Looking up avdd-1v8-supply property in node /hdmi@fe0a0000 failed
+[Thu Oct 29 17:30:36 2026] dwhdmi-rockchip fe0a0000.hdmi: Detected HDMI TX controller v2.11a with HDCP (DWC HDMI 2.0 TX PHY)
+[Thu Oct 29 17:30:36 2026] dwhdmi-rockchip fe0a0000.hdmi: registered DesignWare HDMI I2C bus driver
+[Thu Oct 29 17:30:36 2026] dwhdmi-rockchip fe0a0000.hdmi: error -ENXIO: IRQ index 1 not found
+[Thu Oct 29 17:30:36 2026] [drm] forcing HDMI-A-1 connector off
+[Thu Oct 29 17:30:36 2026] rockchip-drm display-subsystem: bound fe0a0000.hdmi (ops 0xffff800009456138)
+[Thu Oct 29 17:30:36 2026] [drm] Initialized rockchip 4.0.0 20140818 for display-subsystem on minor 0
+[Thu Oct 29 17:30:36 2026] rockchip-drm display-subsystem: failed to parse loader memory
+[Thu Oct 29 17:30:36 2026] rockchip-drm display-subsystem: [drm] Cannot find any crtc or sizes
+[Thu Oct 29 17:30:36 2026] rockchip-drm display-subsystem: [drm] Cannot find any crtc or sizes
+[Thu Oct 29 17:30:36 2026] rockchip-drm display-subsystem: [drm] run display error_event monitor
+[Thu Oct 29 17:30:36 2026] Registered IR keymap rc-cec
+[Thu Oct 29 17:30:36 2026] rc rc0: dw_hdmi as /devices/platform/fe0a0000.hdmi/rc/rc0
+[Thu Oct 29 17:30:36 2026] input: dw_hdmi as /devices/platform/fe0a0000.hdmi/rc/rc0/input0
+[Thu Oct 29 17:30:36 2026] input: hdmi_cec_key as /devices/platform/fe0a0000.hdmi/dw-hdmi-cec.1.auto/input/input1
+[Thu Oct 29 17:30:36 2026] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[Thu Oct 29 17:30:36 2026] brd: module loaded
+[Thu Oct 29 17:30:36 2026] loop: module loaded
+[Thu Oct 29 17:30:36 2026] rbd: loaded (major 254)
+[Thu Oct 29 17:30:36 2026] lkdtm: No crash points registered, enable through debugfs
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: IRQ eth_lpi not found
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: Looking up phy-supply from device tree
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: Looking up phy-supply property in node /ethernet@fe010000 failed
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: supply phy not found, using dummy regulator
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: clock input or output? (output).
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: TX delay(0x47).
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: RX delay(0x27).
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: integrated PHY? (no).
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: init for RGMII
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: User ID: 0x30, Synopsys ID: 0x51
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: 	DWMAC4/5
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: DMA HW capability register supported
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: RX Checksum Offload Engine supported
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: TX Checksum insertion supported
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: Wake-Up On Lan supported
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: TSO supported
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: Enable RX Mitigation via HW Watchdog Timer
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: Enabled RFS Flow TC (entries=10)
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: TSO feature enabled
+[Thu Oct 29 17:30:36 2026] rk_gmac-dwmac fe010000.ethernet: Using 32/32 bits DMA host/device width
+[Thu Oct 29 17:30:37 2026] rockchip-drm display-subsystem: [drm] Cannot find any crtc or sizes
+[Thu Oct 29 17:30:37 2026] rockchip-drm display-subsystem: [drm] Cannot find any crtc or sizes
+[Thu Oct 29 17:30:37 2026] usbcore: registered new interface driver rndis_wlan
+[Thu Oct 29 17:30:37 2026] usbcore: registered new interface driver asix
+[Thu Oct 29 17:30:37 2026] usbcore: registered new interface driver cdc_ether
+[Thu Oct 29 17:30:37 2026] usbcore: registered new interface driver rndis_host
+[Thu Oct 29 17:30:37 2026] usbcore: registered new interface driver cdc_ncm
+[Thu Oct 29 17:30:37 2026] VFIO - User Level meta-driver version: 0.3
+[Thu Oct 29 17:30:37 2026] naneng-combphy fe830000.phy: wait phy status ready timeout
+[Thu Oct 29 17:30:37 2026] phy phy-fe8b0000.usb2-phy.3: illegal mode
+[Thu Oct 29 17:30:37 2026] xhci-hcd xhci-hcd.4.auto: xHCI Host Controller
+[Thu Oct 29 17:30:37 2026] xhci-hcd xhci-hcd.4.auto: new USB bus registered, assigned bus number 1
+[Thu Oct 29 17:30:37 2026] xhci-hcd xhci-hcd.4.auto: hcc params 0x0220fe64 hci version 0x110 quirks 0x0002008002010010
+[Thu Oct 29 17:30:37 2026] xhci-hcd xhci-hcd.4.auto: irq 47, io mem 0xfd000000
+[Thu Oct 29 17:30:37 2026] xhci-hcd xhci-hcd.4.auto: xHCI Host Controller
+[Thu Oct 29 17:30:37 2026] xhci-hcd xhci-hcd.4.auto: new USB bus registered, assigned bus number 2
+[Thu Oct 29 17:30:37 2026] xhci-hcd xhci-hcd.4.auto: Host supports USB 3.0 SuperSpeed
+[Thu Oct 29 17:30:37 2026] ehci-platform fd800000.usb: EHCI Host Controller
+[Thu Oct 29 17:30:37 2026] phy phy-fe8b0000.usb2-phy.3: illegal mode
+[Thu Oct 29 17:30:37 2026] ohci-platform fd840000.usb: Generic Platform OHCI controller
+[Thu Oct 29 17:30:37 2026] ehci-platform fd880000.usb: EHCI Host Controller
+[Thu Oct 29 17:30:37 2026] ohci-platform fd8c0000.usb: Generic Platform OHCI controller
+[Thu Oct 29 17:30:37 2026] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.01
+[Thu Oct 29 17:30:37 2026] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[Thu Oct 29 17:30:37 2026] usb usb1: Product: xHCI Host Controller
+[Thu Oct 29 17:30:37 2026] usb usb1: Manufacturer: Linux 6.1.115-vendor-rk35xx xhci-hcd
+[Thu Oct 29 17:30:37 2026] usb usb1: SerialNumber: xhci-hcd.4.auto
+[Thu Oct 29 17:30:37 2026] hub 1-0:1.0: USB hub found
+[Thu Oct 29 17:30:37 2026] hub 1-0:1.0: 1 port detected
+[Thu Oct 29 17:30:37 2026] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+[Thu Oct 29 17:30:37 2026] usb usb2: New USB device found, idVendor=1d6b, idProduct=0003, bcdDevice= 6.01
+[Thu Oct 29 17:30:37 2026] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[Thu Oct 29 17:30:37 2026] usb usb2: Product: xHCI Host Controller
+[Thu Oct 29 17:30:37 2026] usb usb2: Manufacturer: Linux 6.1.115-vendor-rk35xx xhci-hcd
+[Thu Oct 29 17:30:37 2026] usb usb2: SerialNumber: xhci-hcd.4.auto
+[Thu Oct 29 17:30:37 2026] hub 2-0:1.0: USB hub found
+[Thu Oct 29 17:30:37 2026] hub 2-0:1.0: 1 port detected
+[Thu Oct 29 17:30:37 2026] ehci-platform fd800000.usb: new USB bus registered, assigned bus number 3
+[Thu Oct 29 17:30:37 2026] ohci-platform fd840000.usb: new USB bus registered, assigned bus number 4
+[Thu Oct 29 17:30:37 2026] ehci-platform fd880000.usb: new USB bus registered, assigned bus number 5
+[Thu Oct 29 17:30:37 2026] ohci-platform fd8c0000.usb: new USB bus registered, assigned bus number 6
+[Thu Oct 29 17:30:37 2026] ehci-platform fd800000.usb: irq 48, io mem 0xfd800000
+[Thu Oct 29 17:30:37 2026] ohci-platform fd840000.usb: irq 50, io mem 0xfd840000
+[Thu Oct 29 17:30:37 2026] ehci-platform fd880000.usb: irq 49, io mem 0xfd880000
+[Thu Oct 29 17:30:37 2026] ohci-platform fd8c0000.usb: irq 51, io mem 0xfd8c0000
+[Thu Oct 29 17:30:37 2026] usbcore: registered new interface driver cdc_acm
+[Thu Oct 29 17:30:37 2026] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[Thu Oct 29 17:30:37 2026] usbcore: registered new interface driver uas
+[Thu Oct 29 17:30:37 2026] usbcore: registered new interface driver usb-storage
+[Thu Oct 29 17:30:37 2026] mousedev: PS/2 mouse device common for all mice
+[Thu Oct 29 17:30:37 2026] i2c_dev: i2c /dev entries driver
+[Thu Oct 29 17:30:37 2026] fan53555-regulator 0-0040: FAN53555 Option[8] Rev[1] Detected!
+[Thu Oct 29 17:30:37 2026] fan53555-regulator 0-0040: Looking up vin-supply from device tree
+[Thu Oct 29 17:30:37 2026] vdd_cpu: supplied by vcc5v0_sys
+[Thu Oct 29 17:30:37 2026] vcc5v0_sys: could not add device link regulator.5: -ENOENT
+[Thu Oct 29 17:30:37 2026] vdd_cpu: override max_uV, 1390000 -> 1387500
+[Thu Oct 29 17:30:37 2026] vdd_cpu: 712 <--> 1387 mV at 900 mV, enabled
+[Thu Oct 29 17:30:37 2026] ehci-platform fd800000.usb: USB 2.0 started, EHCI 1.00
+[Thu Oct 29 17:30:37 2026] usb usb3: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.01
+[Thu Oct 29 17:30:37 2026] usb usb3: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[Thu Oct 29 17:30:37 2026] usb usb3: Product: EHCI Host Controller
+[Thu Oct 29 17:30:37 2026] usb usb3: Manufacturer: Linux 6.1.115-vendor-rk35xx ehci_hcd
+[Thu Oct 29 17:30:37 2026] usb usb3: SerialNumber: fd800000.usb
+[Thu Oct 29 17:30:37 2026] i2c 0-0020: Fixed dependency cycle(s) with /i2c@fdd40000/pmic@20/regulators/BOOST
+[Thu Oct 29 17:30:37 2026] i2c 0-0020: Fixed dependency cycle(s) with /i2c@fdd40000/pmic@20/pinctrl_rk8xx/rk817_slppin_rst
+[Thu Oct 29 17:30:37 2026] i2c 0-0020: Fixed dependency cycle(s) with /i2c@fdd40000/pmic@20/pinctrl_rk8xx/rk817_slppin_pwrdn
+[Thu Oct 29 17:30:37 2026] i2c 0-0020: Fixed dependency cycle(s) with /i2c@fdd40000/pmic@20/pinctrl_rk8xx/rk817_slppin_slp
+[Thu Oct 29 17:30:37 2026] hub 3-0:1.0: USB hub found
+[Thu Oct 29 17:30:37 2026] hub 3-0:1.0: 1 port detected
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: chip id: 0x8170
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: No cache defaults, reading back from HW
+[Thu Oct 29 17:30:37 2026] ehci-platform fd880000.usb: USB 2.0 started, EHCI 1.00
+[Thu Oct 29 17:30:37 2026] usb usb5: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.01
+[Thu Oct 29 17:30:37 2026] usb usb5: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[Thu Oct 29 17:30:37 2026] usb usb5: Product: EHCI Host Controller
+[Thu Oct 29 17:30:37 2026] usb usb5: Manufacturer: Linux 6.1.115-vendor-rk35xx ehci_hcd
+[Thu Oct 29 17:30:37 2026] usb usb5: SerialNumber: fd880000.usb
+[Thu Oct 29 17:30:37 2026] hub 5-0:1.0: USB hub found
+[Thu Oct 29 17:30:37 2026] hub 5-0:1.0: 1 port detected
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: source: on=0x40, off=0x00
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: support dcdc3 fb mode:-22, 0
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: support pmic reset mode:0,0
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: Fixed dependency cycle(s) with /i2c@fdd40000/pmic@20/pinctrl_rk8xx
+[Thu Oct 29 17:30:37 2026] rk808-regulator rk808-regulator: there is no dvs0 gpio
+[Thu Oct 29 17:30:37 2026] rk808-regulator rk808-regulator: there is no dvs1 gpio
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: Looking up vcc1-supply from device tree
+[Thu Oct 29 17:30:37 2026] vdd_logic: supplied by vcc_sys
+[Thu Oct 29 17:30:37 2026] vcc_sys: could not add device link regulator.6: -ENOENT
+[Thu Oct 29 17:30:37 2026] vdd_logic: 500 <--> 1350 mV at 900 mV, enabled
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: Looking up vcc2-supply from device tree
+[Thu Oct 29 17:30:37 2026] vdd_gpu: supplied by vcc_sys
+[Thu Oct 29 17:30:37 2026] vcc_sys: could not add device link regulator.7: -ENOENT
+[Thu Oct 29 17:30:37 2026] vdd_gpu: 500 <--> 1350 mV at 900 mV, enabled
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: Looking up vcc3-supply from device tree
+[Thu Oct 29 17:30:37 2026] vcc_ddr: supplied by vcc_sys
+[Thu Oct 29 17:30:37 2026] vcc_sys: could not add device link regulator.8: -ENOENT
+[Thu Oct 29 17:30:37 2026] vcc_ddr: at 500 mV, enabled
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: Looking up vcc4-supply from device tree
+[Thu Oct 29 17:30:37 2026] vcc_3v3: supplied by vcc_sys
+[Thu Oct 29 17:30:37 2026] vcc_sys: could not add device link regulator.9: -ENOENT
+[Thu Oct 29 17:30:37 2026] vcc_3v3: 3300 mV, enabled
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: Looking up vcc5-supply from device tree
+[Thu Oct 29 17:30:37 2026] vcca1v8_pmu: supplied by vcc_sys
+[Thu Oct 29 17:30:37 2026] vcc_sys: could not add device link regulator.10: -ENOENT
+[Thu Oct 29 17:30:37 2026] vcca1v8_pmu: 1800 mV, enabled
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: Looking up vcc5-supply from device tree
+[Thu Oct 29 17:30:37 2026] vdda_0v9: supplied by vcc_sys
+[Thu Oct 29 17:30:37 2026] vcc_sys: could not add device link regulator.11: -ENOENT
+[Thu Oct 29 17:30:37 2026] vdda_0v9: 900 mV, enabled
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: Looking up vcc5-supply from device tree
+[Thu Oct 29 17:30:37 2026] vdda0v9_pmu: supplied by vcc_sys
+[Thu Oct 29 17:30:37 2026] vcc_sys: could not add device link regulator.12: -ENOENT
+[Thu Oct 29 17:30:37 2026] vdda0v9_pmu: 900 mV, enabled
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: Looking up vcc6-supply from device tree
+[Thu Oct 29 17:30:37 2026] vccio_acodec: supplied by vcc_sys
+[Thu Oct 29 17:30:37 2026] vcc_sys: could not add device link regulator.13: -ENOENT
+[Thu Oct 29 17:30:37 2026] usb usb6: New USB device found, idVendor=1d6b, idProduct=0001, bcdDevice= 6.01
+[Thu Oct 29 17:30:37 2026] usb usb6: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[Thu Oct 29 17:30:37 2026] usb usb6: Product: Generic Platform OHCI controller
+[Thu Oct 29 17:30:37 2026] usb usb6: Manufacturer: Linux 6.1.115-vendor-rk35xx ohci_hcd
+[Thu Oct 29 17:30:37 2026] usb usb6: SerialNumber: fd8c0000.usb
+[Thu Oct 29 17:30:37 2026] hub 6-0:1.0: USB hub found
+[Thu Oct 29 17:30:37 2026] vccio_acodec: 3300 mV, enabled
+[Thu Oct 29 17:30:37 2026] hub 6-0:1.0: 1 port detected
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: Looking up vcc6-supply from device tree
+[Thu Oct 29 17:30:37 2026] vccio_sd: supplied by vcc_sys
+[Thu Oct 29 17:30:37 2026] vcc_sys: could not add device link regulator.14: -ENOENT
+[Thu Oct 29 17:30:37 2026] usb usb4: New USB device found, idVendor=1d6b, idProduct=0001, bcdDevice= 6.01
+[Thu Oct 29 17:30:37 2026] usb usb4: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[Thu Oct 29 17:30:37 2026] usb usb4: Product: Generic Platform OHCI controller
+[Thu Oct 29 17:30:37 2026] usb usb4: Manufacturer: Linux 6.1.115-vendor-rk35xx ohci_hcd
+[Thu Oct 29 17:30:37 2026] usb usb4: SerialNumber: fd840000.usb
+[Thu Oct 29 17:30:37 2026] vccio_sd: 1800 <--> 3300 mV at 3300 mV, enabled
+[Thu Oct 29 17:30:37 2026] hub 4-0:1.0: USB hub found
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: Looking up vcc6-supply from device tree
+[Thu Oct 29 17:30:37 2026] vcc3v3_pmu: supplied by vcc_sys
+[Thu Oct 29 17:30:37 2026] vcc_sys: could not add device link regulator.15: -ENOENT
+[Thu Oct 29 17:30:37 2026] hub 4-0:1.0: 1 port detected
+[Thu Oct 29 17:30:37 2026] vcc3v3_pmu: 3300 mV, enabled
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: Looking up vcc7-supply from device tree
+[Thu Oct 29 17:30:37 2026] vcc_1v8: supplied by vcc_sys
+[Thu Oct 29 17:30:37 2026] vcc_sys: could not add device link regulator.16: -ENOENT
+[Thu Oct 29 17:30:37 2026] vcc_1v8: 1800 mV, enabled
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: Looking up vcc7-supply from device tree
+[Thu Oct 29 17:30:37 2026] vcc1v8_dvp: supplied by vcc_sys
+[Thu Oct 29 17:30:37 2026] vcc_sys: could not add device link regulator.17: -ENOENT
+[Thu Oct 29 17:30:37 2026] vcc1v8_dvp: 1800 mV, enabled
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: Looking up vcc7-supply from device tree
+[Thu Oct 29 17:30:37 2026] vcc2v8_dvp: supplied by vcc_sys
+[Thu Oct 29 17:30:37 2026] vcc_sys: could not add device link regulator.18: -ENOENT
+[Thu Oct 29 17:30:37 2026] vcc2v8_dvp: 2800 mV, enabled
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: Looking up vcc8-supply from device tree
+[Thu Oct 29 17:30:37 2026] boost: supplied by vcc_sys
+[Thu Oct 29 17:30:37 2026] vcc_sys: could not add device link regulator.19: -ENOENT
+[Thu Oct 29 17:30:37 2026] boost: Bringing 4700000uV into 5000000-5000000uV
+[Thu Oct 29 17:30:37 2026] boost: 5000 mV, enabled
+[Thu Oct 29 17:30:37 2026] otg_switch: no parameters, disabled
+[Thu Oct 29 17:30:37 2026] rk808 0-0020: Looking up vcc9-supply from device tree
+[Thu Oct 29 17:30:37 2026] otg_switch: supplied by boost
+[Thu Oct 29 17:30:37 2026] rk817-battery: Failed to locate of_node [id: -1]
+[Thu Oct 29 17:30:37 2026] rk817-battery rk817-battery: Failed to find matching dt id
+[Thu Oct 29 17:30:37 2026] rk817-charger: Failed to locate of_node [id: -1]
+[Thu Oct 29 17:30:37 2026] rk817-charger rk817-charger: Failed to find matching dt id
+[Thu Oct 29 17:30:37 2026] rk808-rtc rk808-rtc: registered as rtc0
+[Thu Oct 29 17:30:37 2026] rk808-rtc rk808-rtc: setting system clock to 2017-08-04T09:00:15 UTC (1501837215)
+[Thu Oct 29 17:30:37 2026] typec_fusb302 3-0022: Looking up vbus-supply from device tree
+[Thu Oct 29 17:30:37 2026] typec_fusb302 3-0022: Looking up vbus-supply property in node /i2c@fe5c0000/fusb302@22 failed
+[Thu Oct 29 17:30:37 2026] typec_fusb302 3-0022: supply vbus not found, using dummy regulator
+[Thu Oct 29 17:30:37 2026] OF: graph: no port node found in /i2c@fe5c0000/fusb302@22
+[Thu Oct 29 17:30:37 2026] rockchip-mipi-csi2-hw fdfb0000.mipi-csi2-hw: enter mipi csi2 hw probe!
+[Thu Oct 29 17:30:37 2026] rockchip-mipi-csi2-hw fdfb0000.mipi-csi2-hw: probe success, v4l2_dev:mipi-csi2-hw!
+[Thu Oct 29 17:30:37 2026] usbcore: registered new interface driver uvcvideo
+[Thu Oct 29 17:30:37 2026] cpu cpu0: Failed to get specification_serial_number
+[Thu Oct 29 17:30:37 2026] cpu cpu0: Failed to get leakage
+[Thu Oct 29 17:30:37 2026] cpu cpu0: Looking up cpu-supply from device tree
+[Thu Oct 29 17:30:37 2026] cpu cpu0: soc version=0, speed=0
+[Thu Oct 29 17:30:37 2026] cpu cpu0: Looking up cpu-supply from device tree
+[Thu Oct 29 17:30:37 2026] cpu cpu0: avs=0
+[Thu Oct 29 17:30:37 2026] cpu cpu0: l=0 h=2147483647 hyst=5000 l_limit=0 h_limit=0 h_table=0
+[Thu Oct 29 17:30:37 2026] cpu cpu0: EM: OPP:600000 is inefficient
+[Thu Oct 29 17:30:37 2026] cpu cpu0: EM: created perf domain
+[Thu Oct 29 17:30:37 2026] sdhci: Secure Digital Host Controller Interface driver
+[Thu Oct 29 17:30:37 2026] sdhci: Copyright(c) Pierre Ossman
+[Thu Oct 29 17:30:37 2026] Synopsys Designware Multimedia Card Interface Driver
+[Thu Oct 29 17:30:37 2026] sdhci-pltfm: SDHCI platform and OF driver helper
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2c0000.mmc: No normal pinctrl state
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2b0000.mmc: No normal pinctrl state
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2c0000.mmc: No idle pinctrl state
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2b0000.mmc: No idle pinctrl state
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2b0000.mmc: IDMAC supports 32-bit address mode.
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2c0000.mmc: IDMAC supports 32-bit address mode.
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2c0000.mmc: Using internal DMA controller.
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2b0000.mmc: Using internal DMA controller.
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2b0000.mmc: Version ID is 270a
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2c0000.mmc: Version ID is 270a
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2b0000.mmc: DW MMC controller at irq 85,32 bit host data width,256 deep fifo
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2c0000.mmc: DW MMC controller at irq 84,32 bit host data width,256 deep fifo
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2b0000.mmc: Looking up vmmc-supply from device tree
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2c0000.mmc: Looking up vmmc-supply from device tree
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2c0000.mmc: Looking up vmmc-supply property in node /mmc@fe2c0000 failed
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2c0000.mmc: Looking up vqmmc-supply from device tree
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2c0000.mmc: Looking up vqmmc-supply property in node /mmc@fe2c0000 failed
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2b0000.mmc: Looking up vqmmc-supply from device tree
+[Thu Oct 29 17:30:37 2026] dwmmc_rockchip fe2c0000.mmc: allocated mmc-pwrseq
+[Thu Oct 29 17:30:37 2026] mmc_host mmc2: card is non-removable.
+[Thu Oct 29 17:30:37 2026] sdhci-dwcmshc fe310000.mmc: Looking up vmmc-supply from device tree
+[Thu Oct 29 17:30:37 2026] sdhci-dwcmshc fe310000.mmc: Looking up vmmc-supply property in node /mmc@fe310000 failed
+[Thu Oct 29 17:30:37 2026] sdhci-dwcmshc fe310000.mmc: Looking up vqmmc-supply from device tree
+[Thu Oct 29 17:30:37 2026] sdhci-dwcmshc fe310000.mmc: Looking up vqmmc-supply property in node /mmc@fe310000 failed
+[Thu Oct 29 17:30:37 2026] ledtrig-cpu: registered to indicate activity on CPUs
+[Thu Oct 29 17:30:37 2026] arm-scmi firmware:scmi: Failed. SCMI protocol 17 not active.
+[Thu Oct 29 17:30:37 2026] SMCCC: SOC_ID: ARCH_SOC_ID not implemented, skipping ....
+[Thu Oct 29 17:30:37 2026] cryptodev: driver 1.12 loaded.
+[Thu Oct 29 17:30:37 2026] hid: raw HID events driver (C) Jiri Kosina
+[Thu Oct 29 17:30:37 2026] usbcore: registered new interface driver usbhid
+[Thu Oct 29 17:30:37 2026] usbhid: USB HID core driver
+[Thu Oct 29 17:30:37 2026] rockchip,bus bus-npu: Looking up bus-supply from device tree
+[Thu Oct 29 17:30:37 2026] rockchip,bus bus-npu: bin=0
+[Thu Oct 29 17:30:37 2026] rockchip,bus bus-npu: Failed to get leakage
+[Thu Oct 29 17:30:37 2026] rockchip,bus bus-npu: Looking up pvtm-supply from device tree
+[Thu Oct 29 17:30:37 2026] rockchip,bus bus-npu: Looking up pvtm-supply from device tree
+[Thu Oct 29 17:30:37 2026] rockchip,bus bus-npu: avs=0
+[Thu Oct 29 17:30:37 2026] rockchip-saradc fe720000.saradc: Looking up vref-supply from device tree
+[Thu Oct 29 17:30:37 2026] mmc_host mmc1: Bus speed (slot 0) = 375000Hz (slot req 400000Hz, actual 375000HZ div = 0)
+[Thu Oct 29 17:30:37 2026] mmc_host mmc2: Bus speed (slot 0) = 375000Hz (slot req 400000Hz, actual 375000HZ div = 0)
+[Thu Oct 29 17:30:37 2026] SPI driver inv-icm42600-spi has no spi_device_id for invensense,icm42600
+[Thu Oct 29 17:30:37 2026] SPI driver inv-icm42600-spi has no spi_device_id for invensense,icm42602
+[Thu Oct 29 17:30:37 2026] SPI driver inv-icm42600-spi has no spi_device_id for invensense,icm42605
+[Thu Oct 29 17:30:37 2026] SPI driver inv-icm42600-spi has no spi_device_id for invensense,icm42622
+[Thu Oct 29 17:30:37 2026] usbcore: registered new interface driver snd-usb-audio
+[Thu Oct 29 17:30:37 2026] [Awinic] aw87xxx_pa_init:driver version: v2.2.0
+[Thu Oct 29 17:30:37 2026] mmc0: SDHCI controller on fe310000.mmc [fe310000.mmc] using ADMA
+[Thu Oct 29 17:30:37 2026] mmc_host mmc1: Bus speed (slot 0) = 50000000Hz (slot req 50000000Hz, actual 50000000HZ div = 0)
+[Thu Oct 29 17:30:37 2026] mmc1: new high speed SDHC card at address 0001
+[Thu Oct 29 17:30:37 2026] mmcblk1: mmc1:0001 asdfg 14.8 GiB 
+[Thu Oct 29 17:30:37 2026] mmc_host mmc2: Bus speed (slot 0) = 375000Hz (slot req 375000Hz, actual 375000HZ div = 0)
+[Thu Oct 29 17:30:37 2026] GPT:Primary header thinks Alt. header is not at the end of the disk.
+[Thu Oct 29 17:30:37 2026] GPT:30126079 != 31129599
+[Thu Oct 29 17:30:37 2026] GPT:Alternate GPT header not at the end of the disk.
+[Thu Oct 29 17:30:37 2026] GPT:30126079 != 31129599
+[Thu Oct 29 17:30:37 2026] GPT: Use GNU Parted to correct GPT errors.
+[Thu Oct 29 17:30:37 2026]  mmcblk1: p1 p2
+[Thu Oct 29 17:30:37 2026] Initializing XFRM netlink socket
+[Thu Oct 29 17:30:37 2026] NET: Registered PF_PACKET protocol family
+[Thu Oct 29 17:30:37 2026] [BT_RFKILL]: Enter rfkill_rk_init
+[Thu Oct 29 17:30:37 2026] [WLAN_RFKILL]: Enter rfkill_wlan_init
+[Thu Oct 29 17:30:37 2026] [WLAN_RFKILL]: Enter rfkill_wlan_probe
+[Thu Oct 29 17:30:37 2026] [WLAN_RFKILL]: wlan_platdata_parse_dt: Can not read wifi_chip_type, set default to rkwifi.
+[Thu Oct 29 17:30:37 2026] [WLAN_RFKILL]: wlan_platdata_parse_dt: wifi_chip_type = rkwifi
+[Thu Oct 29 17:30:37 2026] [WLAN_RFKILL]: wlan_platdata_parse_dt: enable wifi power control.
+[Thu Oct 29 17:30:37 2026] [WLAN_RFKILL]: wlan_platdata_parse_dt: wifi power controled by gpio.
+[Thu Oct 29 17:30:37 2026] [WLAN_RFKILL]: wlan_platdata_parse_dt: WIFI,poweren_gpio = 16 flags = 0.
+[Thu Oct 29 17:30:37 2026] [WLAN_RFKILL]: wlan_platdata_parse_dt: The ref_wifi_clk not found !
+[Thu Oct 29 17:30:37 2026] [WLAN_RFKILL]: rfkill_wlan_probe: init gpio
+[Thu Oct 29 17:30:37 2026] [WLAN_RFKILL]: rfkill_set_wifi_bt_power: 1
+[Thu Oct 29 17:30:37 2026] [WLAN_RFKILL]: Exit rfkill_wlan_probe
+[Thu Oct 29 17:30:37 2026] [BT_RFKILL]: bluetooth_platdata_parse_dt: get property: uart_rts_gpios = 77.
+[Thu Oct 29 17:30:37 2026] [BT_RFKILL]: bluetooth_platdata_parse_dt: get property: BT,reset_gpio = 17.
+[Thu Oct 29 17:30:37 2026] [BT_RFKILL]: bluetooth_platdata_parse_dt: get property: BT,wake_gpio = 12.
+[Thu Oct 29 17:30:37 2026] [BT_RFKILL]: bluetooth_platdata_parse_dt: get property: BT,wake_host_irq = 11.
+[Thu Oct 29 17:30:37 2026] [BT_RFKILL]: bluetooth_platdata_parse_dt: clk_get failed!!!.
+[Thu Oct 29 17:30:37 2026] [BT_RFKILL]: Request irq for bt wakeup host
+[Thu Oct 29 17:30:37 2026] [BT_RFKILL]: ** disable irq
+[Thu Oct 29 17:30:37 2026] [BT_RFKILL]: bt shut off power
+[Thu Oct 29 17:30:37 2026] [BT_RFKILL]: bt_default device registered.
+[Thu Oct 29 17:30:37 2026] input: bt-powerkey as /devices/platform/wireless-bluetooth/input/input2
+[Thu Oct 29 17:30:37 2026] Key type dns_resolver registered
+[Thu Oct 29 17:30:37 2026] Key type ceph registered
+[Thu Oct 29 17:30:37 2026] libceph: loaded (mon/osd proto 15/24)
+[Thu Oct 29 17:30:37 2026] registered taskstats version 1
+[Thu Oct 29 17:30:37 2026] Loading compiled-in X.509 certificates
+[Thu Oct 29 17:30:37 2026] zswap: loaded using pool zstd/zbud
+[Thu Oct 29 17:30:37 2026] Key type .fscrypt registered
+[Thu Oct 29 17:30:37 2026] Key type fscrypt-provisioning registered
+[Thu Oct 29 17:30:37 2026] Btrfs loaded, crc32c=crc32c-generic, zoned=no, fsverity=no
+[Thu Oct 29 17:30:37 2026] pstore: Using crash dump compression: deflate
+[Thu Oct 29 17:30:37 2026] Key type encrypted registered
+[Thu Oct 29 17:30:37 2026] AppArmor: AppArmor sha1 policy hashing enabled
+[Thu Oct 29 17:30:37 2026] rga2 fdeb0000.rk_rga: probe successfully, irq = 90, hw_version:3.2.63318
+[Thu Oct 29 17:30:37 2026] rga: IOMMU binding successfully, default mapping core[0x4]
+[Thu Oct 29 17:30:37 2026] rga: Module initialized. v1.3.7
+[Thu Oct 29 17:30:37 2026] rockchip-iodomain fdc20000.syscon:io-domains: Looking up pmuio1-supply from device tree
+[Thu Oct 29 17:30:37 2026] rockchip-iodomain fdc20000.syscon:io-domains: Looking up pmuio1-supply property in node /syscon@fdc20000/io-domains failed
+[Thu Oct 29 17:30:37 2026] rockchip-iodomain fdc20000.syscon:io-domains: Looking up pmuio2-supply from device tree
+[Thu Oct 29 17:30:37 2026] rockchip-iodomain fdc20000.syscon:io-domains: pmuio2(3300000 uV) supplied by vcc_3v3
+[Thu Oct 29 17:30:37 2026] rockchip-iodomain fdc20000.syscon:io-domains: Looking up vccio1-supply from device tree
+[Thu Oct 29 17:30:37 2026] rockchip-iodomain fdc20000.syscon:io-domains: vccio1(3300000 uV) supplied by vccio_acodec
+[Thu Oct 29 17:30:37 2026] rockchip-iodomain fdc20000.syscon:io-domains: Looking up vccio2-supply from device tree
+[Thu Oct 29 17:30:37 2026] rockchip-iodomain fdc20000.syscon:io-domains: vccio2(1800000 uV) supplied by vcc_1v8
+[Thu Oct 29 17:30:37 2026] rockchip-iodomain fdc20000.syscon:io-domains: Looking up vccio3-supply from device tree
+[Thu Oct 29 17:30:37 2026] rockchip-iodomain fdc20000.syscon:io-domains: vccio3(3300000 uV) supplied by vccio_sd
+[Thu Oct 29 17:30:37 2026] rockchip-iodomain fdc20000.syscon:io-domains: Looking up vccio4-supply from device tree
+[Thu Oct 29 17:30:37 2026] rockchip-iodomain fdc20000.syscon:io-domains: vccio4(1800000 uV) supplied by vcc_1v8
+[Thu Oct 29 17:30:37 2026] rockchip-iodomain fdc20000.syscon:io-domains: Looking up vccio5-supply from device tree
+[Thu Oct 29 17:30:37 2026] rockchip-iodomain fdc20000.syscon:io-domains: vccio5(3300000 uV) supplied by vcc_3v3
+[Thu Oct 29 17:30:37 2026] rockchip-iodomain fdc20000.syscon:io-domains: Looking up vccio6-supply from device tree
+[Thu Oct 29 17:30:37 2026] rockchip-iodomain fdc20000.syscon:io-domains: vccio6(3300000 uV) supplied by vcc_3v3
+[Thu Oct 29 17:30:37 2026] rockchip-iodomain fdc20000.syscon:io-domains: Looking up vccio7-supply from device tree
+[Thu Oct 29 17:30:37 2026] rockchip-iodomain fdc20000.syscon:io-domains: vccio7(3300000 uV) supplied by vcc_3v3
+[Thu Oct 29 17:30:37 2026] mpp_rkvenc fdf40000.rkvenc: Adding to iommu group 5
+[Thu Oct 29 17:30:37 2026] mpp_rkvenc fdf40000.rkvenc: probing start
+[Thu Oct 29 17:30:37 2026] mpp_rkvenc fdf40000.rkvenc: Looking up venc-supply from device tree
+[Thu Oct 29 17:30:37 2026] mpp_rkvenc fdf40000.rkvenc: bin=0
+[Thu Oct 29 17:30:37 2026] mpp_rkvenc fdf40000.rkvenc: Failed to get leakage
+[Thu Oct 29 17:30:37 2026] mpp_rkvenc fdf40000.rkvenc: Looking up venc-supply from device tree
+[Thu Oct 29 17:30:37 2026] vdd_logic: could not add device link fdf40000.rkvenc: -EEXIST
+[Thu Oct 29 17:30:37 2026] mpp_rkvenc fdf40000.rkvenc: Looking up venc-supply from device tree
+[Thu Oct 29 17:30:37 2026] debugfs: Directory 'fdf40000.rkvenc-venc' with parent 'vdd_logic' already present!
+[Thu Oct 29 17:30:37 2026] vdd_logic: Failed to create debugfs directory
+[Thu Oct 29 17:30:37 2026] mpp_rkvenc fdf40000.rkvenc: avs=0
+[Thu Oct 29 17:30:37 2026] mpp_rkvenc fdf40000.rkvenc: using default check_rate_volt
+[Thu Oct 29 17:30:37 2026] mpp_rkvenc fdf40000.rkvenc: l=-2147483648 h=2147483647 hyst=0 l_limit=0 h_limit=0 h_table=0
+[Thu Oct 29 17:30:37 2026] mpp_rkvenc fdf40000.rkvenc: probing finish
+[Thu Oct 29 17:30:37 2026] mpp_vdpu2 fdea0400.vdpu: Adding to iommu group 1
+[Thu Oct 29 17:30:37 2026] mpp_vdpu2 fdea0400.vdpu: probe device
+[Thu Oct 29 17:30:37 2026] mpp_vdpu2 fdea0400.vdpu: probing finish
+[Thu Oct 29 17:30:37 2026] mpp_vepu2 fdee0000.vepu: Adding to iommu group 3
+[Thu Oct 29 17:30:37 2026] mpp_vepu2 fdee0000.vepu: probing start
+[Thu Oct 29 17:30:37 2026] mpp_vepu2 fdee0000.vepu: probing finish
+[Thu Oct 29 17:30:37 2026] mpp-iep2 fdef0000.iep: Adding to iommu group 4
+[Thu Oct 29 17:30:37 2026] mpp-iep2 fdef0000.iep: probe device
+[Thu Oct 29 17:30:37 2026] mpp-iep2 fdef0000.iep: probing finish
+[Thu Oct 29 17:30:37 2026] mpp_jpgdec fded0000.jpegd: Adding to iommu group 2
+[Thu Oct 29 17:30:37 2026] mpp_jpgdec fded0000.jpegd: probe device
+[Thu Oct 29 17:30:37 2026] mpp_jpgdec fded0000.jpegd: probing finish
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: Adding to iommu group 6
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: rkvdec, probing start
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: shared_niu_a is not found!
+[Thu Oct 29 17:30:37 2026] rkvdec2_init:1198: No niu aclk reset resource define
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: shared_niu_h is not found!
+[Thu Oct 29 17:30:37 2026] rkvdec2_init:1201: No niu hclk reset resource define
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: Looking up vdec-supply from device tree
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: bin=0
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: Failed to get leakage
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: Looking up vdec-supply from device tree
+[Thu Oct 29 17:30:37 2026] vdd_logic: could not add device link fdf80200.rkvdec: -EEXIST
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: Looking up vdec-supply from device tree
+[Thu Oct 29 17:30:37 2026] debugfs: Directory 'fdf80200.rkvdec-vdec' with parent 'vdd_logic' already present!
+[Thu Oct 29 17:30:37 2026] vdd_logic: Failed to create debugfs directory
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: avs=0
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: using default check_rate_volt
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: l=-2147483648 h=2147483647 hyst=0 l_limit=0 h_limit=0 h_table=0
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: sram_start 0x00000000fdcc0000
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: rcb_iova 0x0000000010000000
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: sram_size 45056
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: rcb_size 65536
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: min_width 512
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: link mode probe finish
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: probing finish
+[Thu Oct 29 17:30:37 2026] mpp_rkvdec2 fdf80200.rkvdec: probing finish
+[Thu Oct 29 17:30:37 2026] rockchip-pm-domain fdd90000.power-management:power-controller: Looking up gpu-supply from device tree
+[Thu Oct 29 17:30:37 2026] rockchip-pm-domain fdd90000.power-management:power-controller: Looking up gpu-supply property in node /power-management@fdd90000/power-controller failed
+[Thu Oct 29 17:30:37 2026] mali fde60000.gpu: Kernel DDK version g25p0-00eac0
+[Thu Oct 29 17:30:37 2026] mali fde60000.gpu: error -ENXIO: IRQ JOB not found
+[Thu Oct 29 17:30:37 2026] rockchip-dmc dmc: Failed to get specification_serial_number
+[Thu Oct 29 17:30:37 2026] rockchip-dmc dmc: Failed to get leakage
+[Thu Oct 29 17:30:37 2026] rockchip-dmc dmc: Looking up center-supply from device tree
+[Thu Oct 29 17:30:37 2026] mali fde60000.gpu: error -ENXIO: IRQ MMU not found
+[Thu Oct 29 17:30:37 2026] mali fde60000.gpu: error -ENXIO: IRQ GPU not found
+[Thu Oct 29 17:30:37 2026] mali fde60000.gpu: Insufficient register space, will override to the required size
+[Thu Oct 29 17:30:37 2026] mali fde60000.gpu: Register window unavailable
+[Thu Oct 29 17:30:37 2026] mali fde60000.gpu: Failed to map registers
+[Thu Oct 29 17:30:37 2026] mali fde60000.gpu: Register map failed error = -5
+[Thu Oct 29 17:30:37 2026] mali fde60000.gpu: Device initialization failed
+[Thu Oct 29 17:30:37 2026] mali: probe of fde60000.gpu failed with error -5
+[Thu Oct 29 17:30:37 2026] rockchip-dmc dmc: soc version=0, speed=0
+[Thu Oct 29 17:30:37 2026] rockchip-dmc dmc: Looking up center-supply from device tree
+[Thu Oct 29 17:30:37 2026] rockchip-dmc dmc: avs=0
+[Thu Oct 29 17:30:37 2026] rockchip-dmc dmc: current ATF version 0x102
+[Thu Oct 29 17:30:37 2026] rockchip-dmc dmc: normal_rate = 780000000
+[Thu Oct 29 17:30:37 2026] rockchip-dmc dmc: reboot_rate = 1056000000
+[Thu Oct 29 17:30:37 2026] rockchip-dmc dmc: suspend_rate = 324000000
+[Thu Oct 29 17:30:37 2026] rockchip-dmc dmc: video_4k_rate = 780000000
+[Thu Oct 29 17:30:37 2026] rockchip-dmc dmc: video_4k_10b_rate = 780000000
+[Thu Oct 29 17:30:37 2026] rockchip-dmc dmc: boost_rate = 1056000000
+[Thu Oct 29 17:30:37 2026] rockchip-dmc dmc: fixed_rate(isp|cif0|cif1|dualview) = 1056000000
+[Thu Oct 29 17:30:37 2026] rockchip-dmc dmc: performance_rate = 1056000000
+[Thu Oct 29 17:30:37 2026] rockchip-dmc dmc: failed to get vop pn to msch rl
+[Thu Oct 29 17:30:37 2026] rockchip-dmc dmc: l=0 h=2147483647 hyst=5000 l_limit=0 h_limit=0 h_table=0
+[Thu Oct 29 17:30:37 2026] WCN: marlin_init entry!
+[Thu Oct 29 17:30:37 2026] RKNPU fde40000.npu: Adding to iommu group 0
+[Thu Oct 29 17:30:37 2026] RKNPU fde40000.npu: RKNPU: rknpu iommu is enabled, using iommu mode
+[Thu Oct 29 17:30:37 2026] RKNPU fde40000.npu: Looking up rknpu-supply from device tree
+[Thu Oct 29 17:30:37 2026] RKNPU fde40000.npu: Looking up mem-supply from device tree
+[Thu Oct 29 17:30:37 2026] RKNPU fde40000.npu: Looking up mem-supply property in node /npu@fde40000 failed
+[Thu Oct 29 17:30:37 2026] RKNPU fde40000.npu: can't request region for resource [mem 0xfde40000-0xfde4ffff]
+[Thu Oct 29 17:30:37 2026] RKNPU fde40000.npu: error -ENXIO: IRQ npu_irq not found
+[Thu Oct 29 17:30:37 2026] [drm] Initialized rknpu 0.9.8 20240828 for fde40000.npu on minor 1
+[Thu Oct 29 17:30:37 2026] RKNPU fde40000.npu: Failed to get specification_serial_number
+[Thu Oct 29 17:30:37 2026] RKNPU fde40000.npu: Failed to get leakage
+[Thu Oct 29 17:30:37 2026] RKNPU fde40000.npu: Looking up rknpu-supply from device tree
+[Thu Oct 29 17:30:37 2026] vdd_gpu: could not add device link fde40000.npu: -EEXIST
+[Thu Oct 29 17:30:37 2026] RKNPU fde40000.npu: soc version=0, speed=0
+[Thu Oct 29 17:30:37 2026] RKNPU fde40000.npu: Looking up rknpu-supply from device tree
+[Thu Oct 29 17:30:37 2026] debugfs: Directory 'fde40000.npu-rknpu' with parent 'vdd_gpu' already present!
+[Thu Oct 29 17:30:37 2026] vdd_gpu: Failed to create debugfs directory
+[Thu Oct 29 17:30:37 2026] RKNPU fde40000.npu: avs=0
+[Thu Oct 29 17:30:37 2026] RKNPU fde40000.npu: l=0 h=2147483647 hyst=5000 l_limit=800000000 h_limit=0 h_table=0
+[Thu Oct 29 17:30:37 2026] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[Thu Oct 29 17:30:37 2026] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[Thu Oct 29 17:30:37 2026] cfg80211: Loaded X.509 cert 'wens: 61c038651aabdcf94bd0ac7ff06c7248db18c600'
+[Thu Oct 29 17:30:37 2026] clk: Disabling unused clocks
+[Thu Oct 29 17:30:37 2026] rockchip-pm rockchip-suspend: not set pwm-regulator-config
+[Thu Oct 29 17:30:37 2026] rockchip-suspend not set sleep-mode-config for mem-lite
+[Thu Oct 29 17:30:37 2026] rockchip-suspend not set wakeup-config for mem-lite
+[Thu Oct 29 17:30:37 2026] rockchip-suspend not set sleep-mode-config for mem-ultra
+[Thu Oct 29 17:30:37 2026] rockchip-suspend not set wakeup-config for mem-ultra
+[Thu Oct 29 17:30:37 2026] ALSA device list:
+[Thu Oct 29 17:30:37 2026]   #0: rockchip-hdmi0
+[Thu Oct 29 17:30:37 2026] Freeing unused kernel memory: 8384K
+[Thu Oct 29 17:30:37 2026] Run /init as init process
+[Thu Oct 29 17:30:37 2026]   with arguments:
+[Thu Oct 29 17:30:37 2026]     /init
+[Thu Oct 29 17:30:37 2026]     splash
+[Thu Oct 29 17:30:37 2026]   with environment:
+[Thu Oct 29 17:30:37 2026]     HOME=/
+[Thu Oct 29 17:30:37 2026]     TERM=linux
+[Thu Oct 29 17:30:37 2026]     partuuid=c8bf773f-0976-4865-a998-d766786d3277
+[Thu Oct 29 17:30:38 2026] EXT4-fs (mmcblk1p1): mounted filesystem with ordered data mode. Quota mode: none.
+[Thu Oct 29 17:30:39 2026] systemd[1]: System time before build time, advancing clock.
+[Thu Oct 29 17:30:39 2026] NET: Registered PF_INET6 protocol family
+[Thu Oct 29 17:30:39 2026] Segment Routing with IPv6
+[Thu Oct 29 17:30:39 2026] In-situ OAM (IOAM) with IPv6
+[Thu Oct 29 17:30:40 2026] systemd[1]: systemd 252.38-1~deb12u1 running in system mode (+PAM +AUDIT +SELINUX +APPARMOR +IMA +SMACK +SECCOMP +GCRYPT -GNUTLS +OPENSSL +ACL +BLKID +CURL +ELFUTILS +FIDO2 +IDN2 -IDN +IPTC +KMOD +LIBCRYPTSETUP +LIBFDISK +PCRE2 -PWQUALITY +P11KIT +QRENCODE +TPM2 +BZIP2 +LZ4 +XZ +ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified)
+[Thu Oct 29 17:30:40 2026] systemd[1]: Detected architecture arm64.
+[Thu Oct 29 17:30:40 2026] systemd[1]: Hostname set to <facedev69>.
+[Thu Oct 29 17:30:40 2026] vendor storage:20190527 ret = -1
+[Thu Oct 29 17:30:40 2026] systemd[1]: /etc/systemd/system/mysession.service:40: Failed to parse utmp mode, ignoring: toletus
+[Thu Oct 29 17:30:40 2026] systemd[1]: Queued start job for default target graphical.target.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Created slice system-modprobe.slice - Slice /system/modprobe.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Created slice system-serial\x2dgetty.slice - Slice /system/serial-getty.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Created slice user.slice - User and Session Slice.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Started systemd-ask-password-wall.path - Forward Password Requests to Wall Directory Watch.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Set up automount proc-sys-fs-binfmt_misc.automount - Arbitrary Executable File Formats File System Automount Point.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Expecting device dev-disk-by\x2duuid-a05d5bc5\x2df614\x2d4025\x2db85f\x2dc824ed3af287.device - /dev/disk/by-uuid/a05d5bc5-f614-4025-b85f-c824ed3af287...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Expecting device dev-ttyFIQ0.device - /dev/ttyFIQ0...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Reached target integritysetup.target - Local Integrity Protected Volumes.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Reached target remote-fs.target - Remote File Systems.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Reached target slices.target - Slice Units.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Reached target swap.target - Swaps.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Reached target veritysetup.target - Local Verity Protected Volumes.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Listening on systemd-fsckd.socket - fsck to fsckd communication Socket.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Listening on systemd-initctl.socket - initctl Compatibility Named Pipe.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Listening on systemd-journald-audit.socket - Journal Audit Socket.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Listening on systemd-journald-dev-log.socket - Journal Socket (/dev/log).
+[Thu Oct 29 17:30:41 2026] systemd[1]: Listening on systemd-journald.socket - Journal Socket.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Listening on systemd-udevd-control.socket - udev Control Socket.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Listening on systemd-udevd-kernel.socket - udev Kernel Socket.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Mounting dev-hugepages.mount - Huge Pages File System...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Mounting dev-mqueue.mount - POSIX Message Queue File System...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Mounting sys-kernel-debug.mount - Kernel Debug File System...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Mounting sys-kernel-tracing.mount - Kernel Trace File System...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Starting fake-hwclock.service - Restore / save the current clock...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Starting keyboard-setup.service - Set the console keyboard layout...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Starting kmod-static-nodes.service - Create List of Static Device Nodes...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Starting modprobe@configfs.service - Load Kernel Module configfs...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Starting modprobe@dm_mod.service - Load Kernel Module dm_mod...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Starting modprobe@drm.service - Load Kernel Module drm...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Starting modprobe@efi_pstore.service - Load Kernel Module efi_pstore...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Starting modprobe@fuse.service - Load Kernel Module fuse...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Starting modprobe@loop.service - Load Kernel Module loop...
+[Thu Oct 29 17:30:41 2026] systemd[1]: systemd-fsck-root.service - File System Check on Root Device was skipped because of an unmet condition check (ConditionPathExists=!/run/initramfs/fsck-root).
+[Thu Oct 29 17:30:41 2026] systemd[1]: Starting systemd-journald.service - Journal Service...
+[Thu Oct 29 17:30:41 2026] device-mapper: ioctl: 4.47.0-ioctl (2022-07-28) initialised: dm-devel@redhat.com
+[Thu Oct 29 17:30:41 2026] systemd[1]: Starting systemd-modules-load.service - Load Kernel Modules...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Starting systemd-remount-fs.service - Remount Root and Kernel File Systems...
+[Thu Oct 29 17:30:41 2026] fuse: init (API version 7.38)
+[Thu Oct 29 17:30:41 2026] systemd[1]: Starting systemd-udev-trigger.service - Coldplug All udev Devices...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Mounted dev-hugepages.mount - Huge Pages File System.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Mounted dev-mqueue.mount - POSIX Message Queue File System.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Mounted sys-kernel-debug.mount - Kernel Debug File System.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Mounted sys-kernel-tracing.mount - Kernel Trace File System.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Finished fake-hwclock.service - Restore / save the current clock.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Finished kmod-static-nodes.service - Create List of Static Device Nodes.
+[Thu Oct 29 17:30:41 2026] systemd[1]: modprobe@configfs.service: Deactivated successfully.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Finished modprobe@configfs.service - Load Kernel Module configfs.
+[Thu Oct 29 17:30:41 2026] systemd[1]: modprobe@dm_mod.service: Deactivated successfully.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Finished modprobe@dm_mod.service - Load Kernel Module dm_mod.
+[Thu Oct 29 17:30:41 2026] systemd[1]: modprobe@drm.service: Deactivated successfully.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Finished modprobe@drm.service - Load Kernel Module drm.
+[Thu Oct 29 17:30:41 2026] systemd[1]: modprobe@efi_pstore.service: Deactivated successfully.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Finished modprobe@efi_pstore.service - Load Kernel Module efi_pstore.
+[Thu Oct 29 17:30:41 2026] systemd[1]: modprobe@fuse.service: Deactivated successfully.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Finished modprobe@fuse.service - Load Kernel Module fuse.
+[Thu Oct 29 17:30:41 2026] systemd[1]: modprobe@loop.service: Deactivated successfully.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Finished modprobe@loop.service - Load Kernel Module loop.
+[Thu Oct 29 17:30:41 2026] EXT4-fs (mmcblk1p1): re-mounted. Quota mode: none.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Mounting sys-fs-fuse-connections.mount - FUSE Control File System...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Mounting sys-kernel-config.mount - Kernel Configuration File System...
+[Thu Oct 29 17:30:41 2026] systemd[1]: systemd-repart.service - Repartition Root Disk was skipped because no trigger condition checks were met.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Finished systemd-modules-load.service - Load Kernel Modules.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Finished systemd-remount-fs.service - Remount Root and Kernel File Systems.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Mounted sys-fs-fuse-connections.mount - FUSE Control File System.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Mounted sys-kernel-config.mount - Kernel Configuration File System.
+[Thu Oct 29 17:30:41 2026] systemd[1]: systemd-firstboot.service - First Boot Wizard was skipped because of an unmet condition check (ConditionFirstBoot=yes).
+[Thu Oct 29 17:30:41 2026] systemd[1]: systemd-pstore.service - Platform Persistent Storage Archival was skipped because of an unmet condition check (ConditionDirectoryNotEmpty=/sys/fs/pstore).
+[Thu Oct 29 17:30:41 2026] systemd[1]: Starting systemd-random-seed.service - Load/Save Random Seed...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Starting systemd-sysctl.service - Apply Kernel Variables...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Starting systemd-sysusers.service - Create System Users...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Finished systemd-random-seed.service - Load/Save Random Seed.
+[Thu Oct 29 17:30:41 2026] systemd[1]: first-boot-complete.target - First Boot Complete was skipped because of an unmet condition check (ConditionFirstBoot=yes).
+[Thu Oct 29 17:30:41 2026] systemd[1]: Finished systemd-sysctl.service - Apply Kernel Variables.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Finished systemd-sysusers.service - Create System Users.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Starting systemd-tmpfiles-setup-dev.service - Create Static Device Nodes in /dev...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Finished keyboard-setup.service - Set the console keyboard layout.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Finished systemd-tmpfiles-setup-dev.service - Create Static Device Nodes in /dev.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Reached target local-fs-pre.target - Preparation for Local File Systems.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Set up automount opt.automount.
+[Thu Oct 29 17:30:41 2026] systemd[1]: Starting systemd-udevd.service - Rule-based Manager for Device Events and Files...
+[Thu Oct 29 17:30:41 2026] systemd[1]: Started systemd-journald.service - Journal Service.
+[Thu Oct 29 17:30:42 2026] EXT4-fs (mmcblk1p2): warning: mounting fs with errors, running e2fsck is recommended
+[Thu Oct 29 17:30:42 2026] EXT4-fs (mmcblk1p2): recovery complete
+[Thu Oct 29 17:30:42 2026] EXT4-fs (mmcblk1p2): mounted filesystem with ordered data mode. Quota mode: none.
+[Thu Oct 29 17:30:42 2026] systemd-journald[306]: Received client request to flush runtime journal.
+[Thu Oct 29 17:30:42 2026] panfrost fde60000.gpu: clock rate = 594000000
+[Thu Oct 29 17:30:42 2026] panfrost fde60000.gpu: bus_clock rate = 500000000
+[Thu Oct 29 17:30:42 2026] panfrost fde60000.gpu: Looking up mali-supply from device tree
+[Thu Oct 29 17:30:42 2026] panfrost fde60000.gpu: mali-g52 id 0x7402 major 0x1 minor 0x0 status 0x0
+[Thu Oct 29 17:30:42 2026] panfrost fde60000.gpu: features: 00000000,00000cf7, issues: 00000000,00000400
+[Thu Oct 29 17:30:42 2026] panfrost fde60000.gpu: Features: L2:0x07110206 Shader:0x00000002 Tiler:0x00000209 Mem:0x1 MMU:0x00002823 AS:0xff JS:0x7
+[Thu Oct 29 17:30:42 2026] panfrost fde60000.gpu: shader_present=0x1 l2_present=0x1
+[Thu Oct 29 17:30:42 2026] input: rk805 pwrkey as /devices/platform/fdd40000.i2c/i2c-0/0-0020/rk805-pwrkey/input/input3
+[Thu Oct 29 17:30:42 2026] [drm] Initialized panfrost 1.2.0 20180908 for fde60000.gpu on minor 2
+[Thu Oct 29 17:30:42 2026] rockchip-thermal fe710000.tsadc: tsadc is probed successfully!
+[Thu Oct 29 17:30:42 2026] rockchip-cpuinfo cpuinfo: SoC		: 35662000
+[Thu Oct 29 17:30:42 2026] rockchip-cpuinfo cpuinfo: Serial		: f9ee7f3fbeec16aa
+[Thu Oct 29 17:30:43 2026] [BT_RFKILL]: bt shut off power
+[Thu Oct 29 17:30:43 2026] rk_gmac-dwmac fe010000.ethernet eth0: Register MEM_TYPE_PAGE_POOL RxQ-0
+[Thu Oct 29 17:30:43 2026] phy_rtl8211f_led_fixup in
+[Thu Oct 29 17:30:43 2026] phy_rtl8211f_led_fixup in  val=0x0a42
+[Thu Oct 29 17:30:43 2026] rk_gmac-dwmac fe010000.ethernet eth0: PHY [stmmac-1:00] driver [RTL8211F Gigabit Ethernet] (irq=POLL)
+[Thu Oct 29 17:30:43 2026] dwmac4: Master AXI performs any burst length
+[Thu Oct 29 17:30:43 2026] rk_gmac-dwmac fe010000.ethernet eth0: No Safety Features support found
+[Thu Oct 29 17:30:43 2026] rk_gmac-dwmac fe010000.ethernet eth0: IEEE 1588-2008 Advanced Timestamp supported
+[Thu Oct 29 17:30:43 2026] rk_gmac-dwmac fe010000.ethernet eth0: registered PTP clock
+[Thu Oct 29 17:30:43 2026] rk_gmac-dwmac fe010000.ethernet eth0: configuring for phy/rgmii link mode
+[Thu Oct 29 17:30:47 2026] rk_gmac-dwmac fe010000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+[Thu Oct 29 17:30:47 2026] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[Thu Oct 29 17:30:52 2026] platform mtd_vendor_storage: deferred probe pending
+[Thu Oct 29 17:30:53 2026] ttyFIQ ttyFIQ0: tty_port_close_start: tty->count = 1 port count = 2
+[Thu Oct 29 17:30:53 2026] rockchip-vop2 fe040000.vop: [drm:vop2_crtc_atomic_enable] Update mode to 1920x1080p60, type: 11(if:HDMI0, flag:0x0) for vp0 dclk: 148500000
+[Thu Oct 29 17:30:53 2026] rockchip-vop2 fe040000.vop: [drm:vop2_crtc_atomic_enable] set dclk_vop0 to 148500000, get 148500000
+[Thu Oct 29 17:30:54 2026] Console: switching to colour frame buffer device 240x67
+[Thu Oct 29 17:30:54 2026] rockchip-drm display-subsystem: [drm] fb0: rockchipdrmfb frame buffer device
+[Thu Oct 29 17:34:43 2026] configfs-gadget.uvcwebcam gadget.0: uvc: uvc_function_bind()
+[Thu Oct 29 17:34:44 2026] dwc3 fcc00000.usb: device reset
+[Thu Oct 29 17:34:44 2026] android_work: sent uevent USB_STATE=CONNECTED
+[Thu Oct 29 17:34:44 2026] dwc3 fcc00000.usb: device reset
+[Thu Oct 29 17:34:44 2026] configfs-gadget.uvcwebcam gadget.0: uvc: uvc_function_set_alt(0, 0)
+[Thu Oct 29 17:34:44 2026] configfs-gadget.uvcwebcam gadget.0: uvc: uvc_function_set_alt(1, 0)
+[Thu Oct 29 17:34:44 2026] android_work: sent uevent USB_STATE=CONFIGURED
+[Thu Oct 29 17:34:44 2026] configfs-gadget.uvcwebcam gadget.0: uvc: uvc_function_set_alt(1, 0)
+[Thu Oct 29 17:35:24 2026] configfs-gadget.uvcwebcam gadget.0: uvc: uvc_function_set_alt(1, 1)
+[Thu Oct 29 17:35:24 2026] configfs-gadget.uvcwebcam gadget.0: reset UVC
+[Thu Oct 29 17:35:40 2026] configfs-gadget.uvcwebcam gadget.0: uvc: Failed to queue request (-108).
+[Thu Oct 29 17:35:40 2026] configfs-gadget.uvcwebcam gadget.0: uvc: uvc_function_disable()
+[Thu Oct 29 17:35:40 2026] android_work: sent uevent USB_STATE=DISCONNECTED
+[Thu Oct 29 17:35:40 2026] dwc3 fcc00000.usb: request 00000000cd32adde was not queued to ep1in
+[Thu Oct 29 17:35:40 2026] dwc3 fcc00000.usb: request 000000004ea5bf73 was not queued to ep1in
+[Thu Oct 29 17:35:40 2026] dwc3 fcc00000.usb: request 000000004e1ed2f0 was not queued to ep1in
+[Thu Oct 29 17:35:40 2026] dwc3 fcc00000.usb: request 0000000055c8bff1 was not queued to ep1in
+[Thu Oct 29 17:35:40 2026] dwc3 fcc00000.usb: request 0000000073fe3a70 was not queued to ep1in
+[Thu Oct 29 17:35:40 2026] dwc3 fcc00000.usb: request 000000006d88f63a was not queued to ep1in
+[Thu Oct 29 17:35:40 2026] dwc3 fcc00000.usb: request 00000000180bd0f4 was not queued to ep1in
+[Thu Oct 29 17:35:40 2026] dwc3 fcc00000.usb: request 00000000b792c731 was not queued to ep1in
+[Thu Oct 29 17:35:40 2026] dwc3 fcc00000.usb: request 00000000e5c710db was not queued to ep1in
+[Thu Oct 29 17:35:40 2026] dwc3 fcc00000.usb: request 0000000024033ebc was not queued to ep1in
+[Thu Oct 29 17:35:40 2026] dwc3 fcc00000.usb: request 00000000703110f4 was not queued to ep1in
+[Thu Oct 29 17:35:40 2026] dwc3 fcc00000.usb: request 0000000066b8de43 was not queued to ep1in
+[Thu Oct 29 17:35:40 2026] dwc3 fcc00000.usb: request 000000007fed13fe was not queued to ep1in
+[Thu Oct 29 17:35:40 2026] dwc3 fcc00000.usb: request 00000000726de99b was not queued to ep1in
+[Thu Oct 29 17:35:40 2026] dwc3 fcc00000.usb: request 00000000b8181fe5 was not queued to ep1in
+[Thu Oct 29 17:35:40 2026] dwc3 fcc00000.usb: request 00000000b82da894 was not queued to ep1in
+[Thu Oct 29 17:35:40 2026] configfs-gadget.uvcwebcam gadget.0: uvc: uvc_function_unbind()
+[Thu Oct 29 17:35:48 2026] EXT4-fs (mmcblk1p2): error count since last fsck: 30
+[Thu Oct 29 17:35:48 2026] EXT4-fs (mmcblk1p2): initial error at time 1793196007: ext4_lookup:1858: inode 379
+[Thu Oct 29 17:35:48 2026] EXT4-fs (mmcblk1p2): last error at time 1793299910: ext4_lookup:1858: inode 383
+[Thu Oct 29 17:36:16 2026] configfs-gadget.uvcwebcam gadget.0: uvc: uvc_function_bind()
+[Thu Oct 29 17:36:17 2026] dwc3 fcc00000.usb: device reset
+[Thu Oct 29 17:36:17 2026] android_work: sent uevent USB_STATE=CONNECTED
+[Thu Oct 29 17:36:17 2026] dwc3 fcc00000.usb: device reset
+[Thu Oct 29 17:36:17 2026] configfs-gadget.uvcwebcam gadget.0: uvc: uvc_function_set_alt(0, 0)
+[Thu Oct 29 17:36:17 2026] configfs-gadget.uvcwebcam gadget.0: uvc: uvc_function_set_alt(1, 0)
+[Thu Oct 29 17:36:17 2026] android_work: sent uevent USB_STATE=CONFIGURED
+[Thu Oct 29 17:36:17 2026] configfs-gadget.uvcwebcam gadget.0: uvc: uvc_function_set_alt(1, 0)
+[Thu Oct 29 17:46:46 2026] configfs-gadget.uvcwebcam gadget.0: uvc: uvc_function_set_alt(1, 1)
+[Thu Oct 29 17:46:46 2026] configfs-gadget.uvcwebcam gadget.0: reset UVC
+[Thu Oct 29 17:47:08 2026] dwc3 fcc00000.usb: request 000000005550edb5 was not queued to ep1in
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] dwc3 fcc00000.usb: request 00000000188fdb89 was not queued to ep1in
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: VS request completed with status -104.
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: uvc_function_disable()
+[Thu Oct 29 17:47:08 2026] android_work: sent uevent USB_STATE=DISCONNECTED
+[Thu Oct 29 17:47:08 2026] configfs-gadget.uvcwebcam gadget.0: uvc: uvc_function_unbind()
+[Thu Oct 29 17:48:15 2026] configfs-gadget.uvcwebcam gadget.0: uvc: uvc_function_bind()
+[Thu Oct 29 17:48:16 2026] dwc3 fcc00000.usb: device reset
+[Thu Oct 29 17:48:16 2026] android_work: sent uevent USB_STATE=CONNECTED
+[Thu Oct 29 17:48:16 2026] dwc3 fcc00000.usb: device reset
+[Thu Oct 29 17:48:16 2026] configfs-gadget.uvcwebcam gadget.0: uvc: uvc_function_set_alt(0, 0)
+[Thu Oct 29 17:48:16 2026] configfs-gadget.uvcwebcam gadget.0: uvc: uvc_function_set_alt(1, 0)
+[Thu Oct 29 17:48:16 2026] android_work: sent uevent USB_STATE=CONFIGURED
+[Thu Oct 29 17:48:16 2026] configfs-gadget.uvcwebcam gadget.0: uvc: uvc_function_set_alt(1, 0)
