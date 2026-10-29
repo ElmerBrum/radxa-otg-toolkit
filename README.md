@@ -1,4 +1,4 @@
-# otg-radxa
+# radxa-otg-toolkit
 
 Using the USB‑C OTG port of the Radxa ZERO 3E (DietPi) as a USB **host**
 (to connect USB devices) or as a USB **webcam** (the board plays a video file).
