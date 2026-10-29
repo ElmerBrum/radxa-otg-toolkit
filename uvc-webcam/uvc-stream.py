@@ -65,6 +65,7 @@ NBUFS = 4
 QUEUE_FRAMES = 4     # encoded JPEGs buffered ahead; ffmpeg blocks on the pipe when full
 PREFILL_FRAMES = 2   # queued before streaming starts (measured: the first 2 ticks underrun without it)
 FIRST_FRAME_TIMEOUT = 5
+STOP_TIMEOUT = 3     # seconds ffmpeg gets to exit on SIGTERM before SIGKILL
 PR_SET_PDEATHSIG = 1
 
 
@@ -73,7 +74,7 @@ def log(*a):
 
 
 def die_with_parent():
-    ctypes.CDLL(None).prctl(PR_SET_PDEATHSIG, signal.SIGKILL)
+    ctypes.CDLL(None).prctl(PR_SET_PDEATHSIG, signal.SIGTERM)
 
 
 class Transcoder:
@@ -128,9 +129,16 @@ class Transcoder:
             time.sleep(0.01)
 
     def stop(self):
-        self.stopping = True    # makes the reader give up on a full queue
-        self.proc.kill()        # nothing to finalize: output is a pipe
-        self.proc.wait()
+        # Let ffmpeg close its hardware sessions itself: the Rockchip MPP driver crashed once
+        # (kernel oops in mpp_session_cleanup_detach) cleaning up a session after ffmpeg was
+        # SIGKILLed. The reader keeps draining the pipe (and drops frames) so ffmpeg can exit.
+        self.stopping = True
+        self.proc.terminate()
+        try:
+            self.proc.wait(STOP_TIMEOUT)
+        except subprocess.TimeoutExpired:
+            self.proc.kill()
+            self.proc.wait()
         self.thread.join()
 
 

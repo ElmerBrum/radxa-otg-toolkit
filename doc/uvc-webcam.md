@@ -102,8 +102,10 @@ leftover gadget automatically.
    4 frames. When the queue is full, `ffmpeg` blocks on the pipe, so it runs only
    as fast as frames are sent. The main loop sends one frame per frame period.
    If a frame is ever late, it repeats the previous one.
-5. When the laptop stops streaming, `ffmpeg` is killed. The kernel also kills
-   it if the streamer dies (`PR_SET_PDEATHSIG`).
+5. When the laptop stops streaming, `ffmpeg` gets SIGTERM while the pipe is
+   still drained, so it closes its hardware sessions itself (about 0.4 s). It
+   gets SIGKILL only if it doesn't exit within 3 s. The kernel also sends it
+   SIGTERM if the streamer dies (`PR_SET_PDEATHSIG`).
 
 ## Design measurements
 
@@ -153,6 +155,18 @@ empty. Waiting for 2 queued frames (0.07 s) removed that: 0 underruns in
 20 s × 3 runs, and 0 underruns in the full end-to-end test with the laptop. With
 the laptop streaming 720p, `ffmpeg` used 28% CPU and `uvc-stream.py` 11%.
 
+**Kernel crash in the MPP driver (once).** One run ended with `Segmentation
+fault` in Python. The real fault was a kernel oops in the Rockchip MPP driver
+(`mpp_dma_session_destroy` ← `mpp_session_cleanup_detach`, in `mpp_worker`).
+It happened while the driver was cleaning up the hardware session of an
+`ffmpeg` that had been stopped with SIGKILL about a minute earlier. The oops
+corrupted kernel memory, and later allocations crashed other processes,
+including the streamer's V4L2 ioctl. A reboot was needed. Reproduction attempts
+didn't trigger it again: 40 × 3 s, and 1 × 150 s at 30 fps, all with SIGKILL
+and 0 oopses. So the cause is unconfirmed. As a precaution, `ffmpeg` is now
+stopped gracefully (see "How it works", step 5), which avoids that driver
+cleanup path.
+
 ## Troubleshooting
 
 | Problem | Fix |
@@ -161,4 +175,5 @@ the laptop streaming 720p, `ffmpeg` used 28% CPU and `uvc-stream.py` 11%.
 | `Already running` | Another instance is running. Use `sudo ./uvc-webcam.sh stop`. |
 | Laptop sees nothing | Check that you are using the OTG port and a data cable (not charge-only). Run `cat /sys/class/udc/fcc00000.usb/state`: it must say `configured`. |
 | Camera listed but black | Look at the script output. You should see `streaming started`. `no frame from ffmpeg` or `ffmpeg exited (...)` means the video couldn't be decoded. Test it with `ffprobe <video>`. |
+| `Segmentation fault`, or random crashes | Check `dmesg \| grep -A30 "Internal error"`. A kernel oops leaves the kernel corrupted, so reboot the board. |
 | Stutter | When streaming stops, the log line `transcoder stopped (underruns=N, ...)` shows how many frames were late. Use a lower resolution, or lower `FPS`. |
