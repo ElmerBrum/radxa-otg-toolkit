@@ -1,36 +1,46 @@
-# Radxa ZERO 3E — Enable USB OTG port as Host (DietPi)
+# otg-radxa
 
-By default the OTG USB‑C port works in device mode. Follow these steps to switch
-it to host mode so you can plug USB devices into it.
+Using the USB‑C OTG port of the Radxa ZERO 3E (DietPi) as a USB **host**
+(to connect USB devices) or as a USB **webcam** (the board plays a video file).
 
-## Enable
+## Repository
+
+```
+.
+├── README.md                          # this file
+├── doc/
+│   ├── otg-host-mode.md               # enable / disable host mode on the OTG port
+│   ├── uvc-webcam.md                  # full webcam gadget guide, how it works, troubleshooting
+│   └── uvc-webcam-configuration.md    # webcam settings (resolution, FPS, quality, name...)
+└── uvc-webcam/
+    ├── uvc-webcam.sh                  # start/stop the USB webcam gadget
+    └── uvc-stream.py                  # streams the video frames (used by uvc-webcam.sh)
+```
+
+## Usage
+
+### OTG as USB host
 
 ```bash
-# Back up the boot config
-sudo cp -a /boot/dietpiEnv.txt /boot/dietpiEnv.txt.bak-otg
-
-# Add "dwc3-host" to the overlays= line
 sudo sed -i -E '/^overlays=/{/dwc3-host/!s/$/ dwc3-host/}' /boot/dietpiEnv.txt
-
-# Check it
-grep '^overlays=' /boot/dietpiEnv.txt
-# overlays= uart4-m1 dwc3-host
-
 sudo reboot
+lsusb    # list connected devices
 ```
 
-You can also edit `/boot/dietpiEnv.txt` by hand and add `dwc3-host` to the
-`overlays=` line, separated by a space.
+Details: [doc/otg-host-mode.md](doc/otg-host-mode.md)
 
-## Check the connected device
+### OTG as USB webcam
+
+The OTG port must be in device mode, meaning `dwc3-host` is not in
+`/boot/dietpiEnv.txt`. Connect the laptop to the OTG port, copy `uvc-webcam/` to
+the board, then run:
 
 ```bash
-lsusb
+sudo ./uvc-webcam.sh start /path/to/video.mp4   # Ctrl+C to stop
+sudo ./uvc-webcam.sh stop                       # or stop from another shell
 ```
 
-## Revert
+Open the **"Radxa UVC Webcam"** camera on the laptop.
 
-```bash
-sudo cp -a /boot/dietpiEnv.txt.bak-otg /boot/dietpiEnv.txt
-sudo reboot
-```
+Details: [doc/uvc-webcam.md](doc/uvc-webcam.md) and
+[doc/uvc-webcam-configuration.md](doc/uvc-webcam-configuration.md)

@@ -11,9 +11,9 @@ connected to the OTG USB‑C port.
 
 | File | What it does |
 |------|--------------|
-| `uvc-webcam.sh`  | Renders the video into JPEG frames, creates the UVC gadget (configfs) and starts the streamer |
-| `uvc-stream.py`  | Answers the host's UVC requests and sends the frames in a loop at the video's frame rate |
-| `CONFIGURATION.md` | Settings you can change (resolutions, FPS, quality, USB name...) |
+| `uvc-webcam/uvc-webcam.sh`  | Renders the video into JPEG frames, creates the UVC gadget (configfs) and starts the streamer |
+| `uvc-webcam/uvc-stream.py`  | Answers the host's UVC requests and sends the frames in a loop at the video's frame rate |
+| [uvc-webcam-configuration.md](uvc-webcam-configuration.md) | Settings you can change (resolutions, FPS, quality, USB name...) |
 
 No packages to install: it only needs `bash`, `python3` and `ffmpeg`, which are
 already on the board.
@@ -21,7 +21,7 @@ already on the board.
 ## 1. Put the OTG port in device mode
 
 The OTG port must **not** be in host mode. If you enabled host mode
-(see `../README.md`), remove `dwc3-host` from the `overlays=` line and reboot:
+(see [otg-host-mode.md](otg-host-mode.md)), remove `dwc3-host` from the `overlays=` line and reboot:
 
 ```bash
 sudo sed -i -E '/^overlays=/s/ ?dwc3-host//' /boot/dietpiEnv.txt
@@ -38,7 +38,7 @@ ls /sys/class/udc
 ## 2. Copy the scripts to the board
 
 ```bash
-scp uvc-webcam.sh uvc-stream.py toletus@192.168.27.65:~/uvc-webcam/
+scp uvc-webcam/uvc-webcam.sh uvc-webcam/uvc-stream.py toletus@192.168.27.65:~/uvc-webcam/
 ```
 
 ## 3. Start

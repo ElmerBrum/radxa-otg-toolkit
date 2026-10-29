@@ -2,7 +2,7 @@
 # Expose the Radxa ZERO 3E OTG port as a USB (UVC) webcam that loops a video file.
 # Usage: sudo ./uvc-webcam.sh start <video-file>    (Ctrl+C stops it)
 #        sudo ./uvc-webcam.sh stop
-# Settings can be overridden with environment variables, see CONFIGURATION.md.
+# Settings can be overridden with environment variables, see doc/uvc-webcam-configuration.md.
 set -e
 
 FPS=${FPS:-}                     # empty = use the video's own frame rate
@@ -38,7 +38,7 @@ start() {
 	local video=$1
 	[ -f "$video" ] || { echo "Usage: $0 start <video-file>" >&2; exit 1; }
 	video=$(readlink -f "$video")
-	[ -d /sys/class/udc/$UDC ] || { echo "$UDC is not in device mode (see README.md)" >&2; exit 1; }
+	[ -d /sys/class/udc/$UDC ] || { echo "$UDC is not in device mode (see doc/otg-host-mode.md)" >&2; exit 1; }
 	[ -d $G ] && { echo "Already running, use: $0 stop" >&2; exit 1; }
 
 	if [ -z "$FPS" ]; then
